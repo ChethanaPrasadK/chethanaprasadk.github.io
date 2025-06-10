@@ -1,0 +1,20 @@
+# Your Name | Research Scientist & Dancer Portfolio
+
+This is a personal website built using Tailwind CSS. It features sections for:
+
+- About Me
+- Research Work
+- Dance Portfolio
+- Professional Experience
+- Contact Info
+
+## Setup
+
+To view the site locally, simply open `index.html` in a browser.
+
+## Hosting
+
+You can host this via GitHub Pages:
+
+1. Push this repo to GitHub.
+2. Go to Settings → Pages → Select `main` branch and `/ (root)` folder.
