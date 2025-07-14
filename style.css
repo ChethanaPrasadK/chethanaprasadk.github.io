@@ -71,3 +71,11 @@ footer {
 .whats-new-scroll li {
   margin-bottom: 0.5rem;
 }
+.whats-new-box {
+  max-height: 12rem;
+  overflow-y: auto;
+  padding-right: 0.5rem;
+  border-radius: 0.5rem;
+  background-color: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
