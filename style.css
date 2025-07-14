@@ -145,3 +145,37 @@ footer {
     text-align: center;
   }
 }
+.auto-scroll-container {
+    height: 8rem;
+    overflow: hidden;
+    position: relative;
+    background-color: #fffbea;
+    color: #1f2937;
+    padding: 1rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    margin: 2rem auto;
+    width: 60%;
+    text-align: left;
+}
+
+.auto-scroll-content {
+    display: inline-block;
+    animation: scroll-up 18s linear infinite;
+    position: absolute;
+    width: 100%;
+}
+
+.auto-scroll-content p {
+    margin-bottom: 1rem;
+    padding-left: 0.5rem;
+}
+
+@keyframes scroll-up {
+    0% {
+        transform: translateY(100%);
+    }
+    100% {
+        transform: translateY(-100%);
+    }
+}
