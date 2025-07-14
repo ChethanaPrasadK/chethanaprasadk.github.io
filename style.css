@@ -83,3 +83,11 @@ footer {
 .auto-scroll-content p {
   margin-bottom: 0.75rem;
 }
+@keyframes ticker-scroll {
+  0%   { transform: translateY(100%); }
+  100% { transform: translateY(-100%); }
+}
+
+.animate-ticker {
+  animation: ticker-scroll 18s linear infinite;
+}
