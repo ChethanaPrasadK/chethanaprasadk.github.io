@@ -1,26 +1,20 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Chethana Prasad K | Portfolio</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <script>
-    // Toggle dark mode based on user system preference
-    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      document.documentElement.classList.add('dark');
-    }
-  </script>
 </head>
-<body class="bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-100 font-sans">
+<body class="bg-gray-900 text-gray-100 font-sans">
   <!-- Header -->
-  <header class="text-center py-10 bg-gradient-to-r from-purple-600 to-indigo-600 text-white">
+  <header class="text-center py-10 bg-gradient-to-r from-purple-700 to-indigo-800 text-white">
     <h1 class="text-4xl font-bold">Chethana Prasad K</h1>
     <p class="text-lg mt-2">Research Engineer | Kathak Dancer | ML Cloud Engineer</p>
   </header>
 
   <!-- Navigation -->
-  <nav class="flex justify-center space-x-6 py-4 bg-gray-100 dark:bg-gray-800 text-blue-600 dark:text-blue-300 font-medium">
+  <nav class="flex justify-center space-x-6 py-4 bg-gray-800 text-purple-300 font-medium">
     <a href="about.html" class="hover:underline">About</a>
     <a href="research.html" class="hover:underline">Research</a>
     <a href="Khathak.html" class="hover:underline">Khathak</a>
@@ -30,97 +24,108 @@
 
   <!-- Main Section -->
   <main class="max-w-5xl mx-auto px-4 py-10 space-y-12">
-    <!-- About + Photo + What's New -->
-    <section class="flex flex-col md:flex-row items-start gap-8">
-      <div class="md:w-1/3 flex justify-center">
-        <img src="profile.jpg" alt="Chethana Prasad K" class="w-48 h-48 rounded-full object-cover border-4 border-purple-300 shadow-lg">
-      </div>
-      <div class="md:w-2/3">
-        <div class="flex justify-between items-start">
-          <div>
-            <h2 class="text-2xl font-semibold mb-2">Hi 👋 I'm Chethana!</h2>
-            <p class="text-sm text-gray-600 dark:text-gray-300 mb-4">Research Engineer | Kathak Enthusiast</p>
-          </div>
-          <div class="ml-4 bg-purple-50 dark:bg-purple-900 border-l-4 border-purple-500 p-3 rounded shadow-md">
-            <h3 class="text-sm font-semibold text-purple-700 dark:text-purple-300 mb-1">🌿 What’s New</h3>
-            <div class="h-24 overflow-y-auto text-xs text-gray-800 dark:text-gray-200 pr-2">
-              <ul class="list-disc pl-4 space-y-1">
-                <li><strong>Jul 2025:</strong> Cognitive Science paper submitted.</li>
-                <li><strong>Jun 2025:</strong> Presented NR-QFL at WinTechCon.</li>
-                <li><strong>May 2025:</strong> Portfolio site live!</li>
-                <li><strong>Apr 2025:</strong> Completed FinGraphX module.</li>
-                <li><strong>Mar 2025:</strong> Kathak Distinction 🩰</li>
-              </ul>
-            </div>
-          </div>
+
+    <!-- Hero Section -->
+    <section class="flex flex-col md:flex-row items-start gap-10">
+      <!-- Rectangular Photo -->
+      <div class="md:w-1/3 flex flex-col items-center">
+        <img src="profile.jpg" alt="Chethana Prasad K" class="w-64 h-auto rounded-lg object-cover shadow-xl border-4 border-purple-500">
+        <div class="text-center mt-2">
+          <h3 class="text-lg font-semibold">Chethana Prasad K</h3>
+          <p class="text-sm text-purple-300">Research Engineer | Kathak Enthusiast</p>
         </div>
-        <p class="text-gray-700 dark:text-gray-300 leading-relaxed text-justify mt-4">
-          Every researcher has a story — mine begins with curiosity, winds through code and questions, and continues with a quiet obsession for meaningful, scalable AI!
-          <br><br>
-          Right now, I’m a Research Scholar at IISc CDS, immersed in a world where machine learning meets security. My work focuses on building privacy-preserving AI systems — not the heavy, efficient alternatives that actually work in the real world. I’m also knee-deep in federated learning, cryptanalysis, and multi-modal sensor data fusion — yes, I love when multiple streams of data talk to each other to make smarter systems!
-          <br><br>
-          I’m currently pursuing a Master of Science in Computer Science (MSCS) at Georgia Tech, where I’m expanding my expertise in scalable AI systems and privacy-aware computation. Before this, I completed an MS(Research) in Machine Learning Engineering through PES University in collaboration with IISc, which offered me an incredible platform to dive deep into real-world research problems. Earlier, I earned my Bachelor of Engineering in Electronics and Communication from VTU, Belgaum — the place where my fascination with the math and magic of technology truly began.
-          <br><br>
-          Before getting into full-time research, I worked at Infosys, where I handled functional testing in core banking systems, mainly Finacle. It was a crash course in how enterprise systems really work and how important robustness is. I also interned as a Research Engineer at HAL and BSNL, exploring practical engineering challenges in avionics and telecom.
-          <br><br>
-          Over time, my interests have naturally aligned toward making machine learning not just powerful but also responsible. That means secure, private, and ethical — all while being computationally efficient. No bloated models here!
-          <br><br>
-          I’ve always believed that research shouldn’t be locked away in labs or PDFs. It should be usable. Scalable. Deployable. My current projects revolve around just that — making machine learning systems smart and secure enough to survive in the wild.
-          <br><br>
-          So, whether I’m building federated frameworks for sensor-based terrain detection, analyzing encryption systems, or dreaming up the next efficient privacy layer, I’m here to contribute to tech that’s thoughtful, ethical, and future-ready.
-        </p>
       </div>
+
+      <!-- What's New Section -->
+      <div class="md:w-2/3">
+        <div class="bg-gray-800 border-l-4 border-purple-500 p-4 rounded shadow-md">
+          <h3 class="text-lg font-semibold text-purple-400 mb-2">🌿 What’s New</h3>
+          <ul class="list-disc pl-5 text-sm space-y-1">
+            <li><strong>Jul 2025:</strong> Cognitive Science paper submitted.</li>
+            <li><strong>Jun 2025:</strong> Presented NR-QFL at WinTechCon.</li>
+            <li><strong>May 2025:</strong> Portfolio site live!</li>
+            <li><strong>Apr 2025:</strong> Completed FinGraphX module.</li>
+            <li><strong>Mar 2025:</strong> Kathak Distinction 🩰</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Headline Section -->
+    <section class="max-w-4xl mx-auto">
+      <h2 class="text-2xl font-semibold mb-4 text-purple-400">Headline</h2>
+      <p class="text-gray-300 leading-relaxed text-justify italic">
+        Every researcher has a story — mine begins with curiosity, winds through code and questions, and continues with a quiet obsession for meaningful, scalable AI!
+      </p>
+    </section>
+
+    <!-- About Me Section -->
+    <section class="max-w-4xl mx-auto">
+      <h2 class="text-2xl font-semibold mb-4 text-purple-400">About Me</h2>
+      <p class="text-gray-300 leading-relaxed text-justify">
+        Right now, I’m a Research Scholar at IISc CDS, immersed in a world where machine learning meets security. My work focuses on building privacy-preserving AI systems — not the heavy, efficient alternatives that actually work in the real world. I’m also knee-deep in federated learning, cryptanalysis, and multi-modal sensor data fusion — yes, I love when multiple streams of data talk to each other to make smarter systems!
+        <br><br>
+        I’m currently pursuing a Master of Science in Computer Science (MSCS) at Georgia Tech, where I’m expanding my expertise in scalable AI systems and privacy-aware computation. Before this, I completed an MS(Research) in Machine Learning Engineering through PES University in collaboration with IISc, which offered me an incredible platform to dive deep into real-world research problems. Earlier, I earned my Bachelor of Engineering in Electronics and Communication from VTU, Belgaum — the place where my fascination with the math and magic of technology truly began.
+        <br><br>
+        Before getting into full-time research, I worked at Infosys, where I handled functional testing in core banking systems, mainly Finacle. It was a crash course in how enterprise systems really work and how important robustness is. I also interned as a Research Engineer at HAL and BSNL, exploring practical engineering challenges in avionics and telecom.
+        <br><br>
+        Over time, my interests have naturally aligned toward making machine learning not just powerful but also responsible. That means secure, private, and ethical — all while being computationally efficient. No bloated models here!
+        <br><br>
+        I’ve always believed that research shouldn’t be locked away in labs or PDFs. It should be usable. Scalable. Deployable. My current projects revolve around just that — making machine learning systems smart and secure enough to survive in the wild.
+        <br><br>
+        So, whether I’m building federated frameworks for sensor-based terrain detection, analyzing encryption systems, or dreaming up the next efficient privacy layer, I’m here to contribute to tech that’s thoughtful, ethical, and future-ready.
+      </p>
     </section>
 
     <!-- Qualifications -->
     <section class="max-w-3xl mx-auto">
-      <h2 class="text-2xl font-semibold mb-4">My Qualification</h2>
+      <h2 class="text-2xl font-semibold mb-4 text-purple-400">My Qualification</h2>
       <div class="space-y-4">
         <div>
-          <h3 class="text-blue-700 dark:text-blue-300 font-bold">MS in Computer Science, Georgia Tech (USA)</h3>
-          <p>2024–2026</p>
+          <h3 class="text-purple-300 font-bold">MS in Computer Science, Georgia Tech (USA)</h3>
+          <p class="text-gray-400">2024–2026</p>
         </div>
         <div>
-          <h3 class="text-blue-700 dark:text-blue-300 font-bold">MS(Research) in Machine Learning, PES University</h3>
-          <p>2023–2025</p>
+          <h3 class="text-purple-300 font-bold">MS(Research) in Machine Learning, PES University</h3>
+          <p class="text-gray-400">2023–2025</p>
         </div>
         <div>
-          <h3 class="text-blue-700 dark:text-blue-300 font-bold">BE in ECE, VTU, Belgaum</h3>
-          <p>2017–2021</p>
+          <h3 class="text-purple-300 font-bold">BE in ECE, VTU, Belgaum</h3>
+          <p class="text-gray-400">2017–2021</p>
         </div>
       </div>
     </section>
 
     <!-- Timeline -->
-    <section class="bg-white dark:bg-gray-800 shadow-md rounded-lg p-4 max-w-3xl mx-auto">
-      <h3 class="text-2xl font-semibold text-purple-600 dark:text-purple-400 mb-6">My Journey</h3>
-      <div class="border-l-4 border-purple-400 pl-6 space-y-6">
+    <section class="bg-gray-800 shadow-md rounded-lg p-4 max-w-3xl mx-auto">
+      <h3 class="text-2xl font-semibold text-purple-400 mb-6">My Journey</h3>
+      <div class="border-l-4 border-purple-500 pl-6 space-y-6">
         <div class="relative">
-          <div class="absolute -left-2 top-1 w-4 h-4 bg-purple-500 rounded-full border-4 border-white"></div>
+          <div class="absolute -left-2 top-1 w-4 h-4 bg-purple-500 rounded-full border-4 border-gray-800"></div>
           <div>
-            <h4 class="text-lg font-semibold">2025 – Present: IISc, Bangalore</h4>
-            <p class="text-sm text-gray-600 dark:text-gray-300">Research Intern</p>
+            <h4 class="text-lg font-semibold text-gray-100">2025 – Present: IISc, Bangalore</h4>
+            <p class="text-gray-400 text-sm">Research Intern</p>
           </div>
         </div>
         <div class="relative">
-          <div class="absolute -left-2 top-1 w-4 h-4 bg-purple-500 rounded-full border-4 border-white"></div>
+          <div class="absolute -left-2 top-1 w-4 h-4 bg-purple-500 rounded-full border-4 border-gray-800"></div>
           <div>
-            <h4 class="text-lg font-semibold">2023 – 2024: PES University</h4>
-            <p class="text-sm text-gray-600 dark:text-gray-300">Research Scholar Faculty</p>
+            <h4 class="text-lg font-semibold text-gray-100">2023 – 2024: PES University</h4>
+            <p class="text-gray-400 text-sm">Research Scholar Faculty</p>
           </div>
         </div>
         <div class="relative">
-          <div class="absolute -left-2 top-1 w-4 h-4 bg-purple-500 rounded-full border-4 border-white"></div>
+          <div class="absolute -left-2 top-1 w-4 h-4 bg-purple-500 rounded-full border-4 border-gray-800"></div>
           <div>
-            <h4 class="text-lg font-semibold">2021 – 2023: Infosys Ltd.</h4>
-            <p class="text-sm text-gray-600 dark:text-gray-300">Systems Engineer</p>
+            <h4 class="text-lg font-semibold text-gray-100">2021 – 2023: Infosys Ltd.</h4>
+            <p class="text-gray-400 text-sm">Systems Engineer</p>
           </div>
         </div>
         <div class="relative">
-          <div class="absolute -left-2 top-1 w-4 h-4 bg-purple-500 rounded-full border-4 border-white"></div>
+          <div class="absolute -left-2 top-1 w-4 h-4 bg-purple-500 rounded-full border-4 border-gray-800"></div>
           <div>
-            <h4 class="text-lg font-semibold">2020: HAL & BSNL</h4>
-            <p class="text-sm text-gray-600 dark:text-gray-300">Research Engineer Intern in embedded systems and telecom</p>
+            <h4 class="text-lg font-semibold text-gray-100">2020: HAL & BSNL</h4>
+            <p class="text-gray-400 text-sm">Research Engineer Intern in embedded systems and telecom</p>
           </div>
         </div>
       </div>
@@ -128,7 +133,7 @@
   </main>
 
   <!-- Footer -->
-  <footer class="text-center py-6 text-sm text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-900">
+  <footer class="text-center py-6 text-sm text-gray-400 bg-gray-800">
     &copy; 2025 Chethana Prasad K. All rights reserved.
   </footer>
 </body>
