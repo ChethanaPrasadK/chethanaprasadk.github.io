@@ -65,10 +65,11 @@
     </div>
 
     <!-- What's New -->
- <div class="w-full md:w-2/3 mx-auto mt-10">
-  <h3 class="text-xl font-bold text-purple-400 mb-2 text-center">🌿 What’s New</h3>
+<!-- What's New (Auto-Scrolling Ticker) -->
+<div class="w-full md:w-2/3">
+  <h3 class="text-xl font-bold text-purple-400 mb-2">🌿 What’s New</h3>
   <div class="relative h-32 overflow-hidden bg-gray-800 rounded-lg shadow-inner">
-    <ul class="ticker text-sm text-yellow-100 list-disc pl-6 space-y-3">
+    <ul id="newsTicker" class="absolute animate-ticker space-y-2 text-sm pl-5 list-disc text-yellow-100">
       <li><strong>Jul 2025:</strong> Visual Recognition paper submitted to <em>Open Mind</em> 🧠</li>
       <li><strong>Jun 2025:</strong> Quantum FL Privacy paper sent to <em>WinTechCon</em> ⚛️</li>
       <li><strong>May 2025:</strong> Survey on FL + Healthcare @ IISc 📚</li>
@@ -78,6 +79,7 @@
     </ul>
   </div>
 </div>
+
     </section>
 
   </section>
