@@ -1,148 +1,173 @@
 <!DOCTYPE html>
-<html lang="en" class="transition-colors duration-300">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Chethana Prasad K | Portfolio</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    html.dark {
-      background-color: #1a202c;
+    .typing::after {
+      content: '|';
+      animation: blink 1s infinite;
     }
-    .typing {
-      overflow: hidden;
-      border-right: .15em solid #bbf7d0;
-      white-space: nowrap;
-      animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
-      font-family: monospace;
-    }
-    @keyframes typing {
-      from { width: 0 }
-      to { width: 100% }
-    }
-    @keyframes blink-caret {
-      from, to { border-color: transparent }
-      50% { border-color: #bbf7d0 }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
     }
 
-    .auto-scroll-container {
-      height: 8rem;
-      overflow: hidden;
-      position: relative;
-      background-color: #fdfdfd;
-      color: #1f2937;
-      padding: 1rem;
-      border-radius: 0.75rem;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    .timeline-marker {
+      animation: ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;
     }
+
     .auto-scroll-content {
-      display: flex;
-      flex-direction: column;
-      animation: scroll-up 25s linear infinite;
+      max-height: 130px;
+      overflow-y: auto;
     }
-    @keyframes scroll-up {
-      0% { transform: translateY(100%) }
-      100% { transform: translateY(-100%) }
-    }
-    .timeline-dot::before {
-      content: '';
-      position: absolute;
-      top: 0.5rem;
-      left: -1.25rem;
-      width: 1rem;
-      height: 1rem;
-      background-color: #8b5cf6;
-      border: 3px solid #1f2937;
-      border-radius: 50%;
+
+    .transition-section {
+      transition: background-color 0.3s ease, color 0.3s ease;
     }
   </style>
 </head>
+<body class="bg-gray-900 text-gray-100 font-sans transition-section">
 
-<body class="bg-gray-900 text-gray-100 font-sans transition-colors duration-300">
-  <!-- Dark Mode Toggle -->
-  <div class="flex justify-end p-4">
-    <button onclick="toggleDarkMode()" class="px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded">Toggle Mode</button>
-  </div>
+<!-- Dark/Light Toggle -->
+<div class="absolute top-4 right-6">
+  <button id="toggleTheme" class="bg-gray-800 text-sm text-white px-3 py-1 rounded hover:bg-gray-700">Toggle Theme</button>
+</div>
 
-  <!-- Header -->
-  <header class="text-center py-10 bg-gradient-to-r from-purple-700 to-indigo-800 text-white">
-    <h1 class="text-4xl font-bold">Chethana Prasad K</h1>
-    <p class="typing text-lg mt-2">Research Engineer | Kathak Dancer | ML Cloud Engineer</p>
-  </header>
+<!-- Header -->
+<header class="text-center py-10 bg-gradient-to-r from-purple-700 to-indigo-800 text-white">
+  <h1 class="text-4xl font-bold typing" id="typingText"></h1>
+  <p class="text-lg mt-2">Research Engineer | Kathak Dancer | ML Cloud Engineer</p>
+</header>
 
-  <!-- Navigation -->
-  <nav class="flex justify-center space-x-6 py-4 bg-gray-800 text-purple-300 font-medium">
-    <a href="#about" class="hover:underline">About</a>
-    <a href="#research" class="hover:underline">Research</a>
-    <a href="#projects" class="hover:underline">Projects</a>
-    <a href="#experience" class="hover:underline">Experience</a>
-    <a href="#kathak" class="hover:underline">Kathak</a>
-    <a href="#contact" class="hover:underline">Contact</a>
-  </nav>
+<!-- Navigation -->
+<nav class="flex justify-center space-x-6 py-4 bg-gray-800 text-purple-300 font-medium">
+  <a href="about.html" class="hover:underline">About</a>
+  <a href="research.html" class="hover:underline">Research</a>
+  <a href="projects.html" class="hover:underline">Projects</a>
+  <a href="experiance.html" class="hover:underline">Experience</a>
+  <a href="Khathak.html" class="hover:underline">Khathak</a>
+  <a href="contact.html" class="hover:underline">Contact</a>
+</nav>
 
-  <main class="max-w-5xl mx-auto px-4 py-10 space-y-12">
+<main class="max-w-5xl mx-auto px-4 py-10 space-y-16">
+
+  <!-- Hero -->
+  <section class="flex flex-col md:flex-row items-start gap-10">
+    <div class="md:w-1/3 flex flex-col items-center">
+      <img src="assets/css/assets/img/me.jpeg" alt="Chethana Prasad K" class="w-64 h-auto rounded-lg object-cover shadow-xl border-4 border-purple-500">
+      <div class="text-center mt-2">
+        <h3 class="text-lg font-semibold">Chethana Prasad K</h3>
+        <p class="text-sm text-purple-300">Research Engineer | Kathak Enthusiast</p>
+      </div>
+    </div>
 
     <!-- What's New -->
-    <section class="auto-scroll-container">
-      <h3 class="text-xl font-bold text-purple-700 mb-2 text-center">🌿 What’s New</h3>
-      <div class="auto-scroll-content text-sm text-center">
-        <p><strong>Jul 2025:</strong> Visual Recognition paper submitted to <em>Open Mind</em> 🧠</p>
-        <p><strong>Jun 2025:</strong> Quantum FL Privacy paper sent to <em>WinTechCon</em> ⚛️</p>
-        <p><strong>May 2025:</strong> Literature Survey on FL + Healthcare @ IISc 📚</p>
-        <p><strong>Apr 2025:</strong> HCI Final: Order Tracking Dashboard @ GT 📦</p>
-        <p><strong>Mar 2025:</strong> FinGraphX — Explainable ML for finance 💸</p>
-        <p><strong>Feb 2025:</strong> Kathak Level 4 Distinction 💃</p>
+    <div class="w-full md:w-2/3">
+      <h3 class="text-xl font-bold text-purple-400 mb-2">🌿 What’s New</h3>
+      <div class="bg-gray-800 p-4 rounded-lg auto-scroll-content text-sm shadow-inner">
+        <ul class="list-disc pl-5 space-y-1">
+          <li><strong>Jul 2025:</strong> Visual Recognition paper submitted to <em>Open Mind</em> 🧠</li>
+          <li><strong>Jun 2025:</strong> Quantum FL Privacy paper sent to <em>WinTechCon</em> ⚛️</li>
+          <li><strong>May 2025:</strong> Survey on FL + Healthcare @ IISc 📚</li>
+          <li><strong>Apr 2025:</strong> HCI Dashboard project @ GT 📦</li>
+          <li><strong>Mar 2025:</strong> FinGraphX — Explainable ML 💸</li>
+          <li><strong>Feb 2025:</strong> Kathak Level 4 Distinction 💃</li>
+        </ul>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- About Me -->
-    <section id="about" class="max-w-4xl mx-auto">
-      <h2 class="text-2xl font-semibold mb-4 text-purple-400">About Me</h2>
-      <p class="text-gray-300 leading-relaxed text-justify">
-        I’m a Research Scholar at IISc CDS, working at the intersection of privacy and machine learning. My focus is building privacy-preserving AI systems — not theoretical ones, but efficient and real-world deployable solutions. I’ve explored federated learning, cryptographic analysis, and multimodal sensor fusion.  
-        <br><br>
-        I’m pursuing an MSCS at Georgia Tech and previously completed my MS(Research) at PES University (with IISc). My undergrad was from VTU in ECE — where it all started.
-        <br><br>
-        Professionally, I began at Infosys, working with core banking systems (Finacle), followed by research engineering internships at HAL and BSNL.
-        <br><br>
-        My current passion is making machine learning not just smarter — but more responsible, privacy-aware, and efficient.
-      </p>
-    </section>
+  <!-- About Me -->
+  <section>
+    <h2 class="text-2xl font-semibold text-purple-400 mb-4">About Me</h2>
+    <p class="text-gray-300 leading-relaxed text-justify">
+      I’m a Research Scholar at IISc CDS working on secure ML systems. My focus is on privacy-preserving federated learning, encryption-aware ML, and multi-modal data integration. I’m currently pursuing MSCS at Georgia Tech and hold an MS (Research) from PES University, in partnership with IISc.
+      <br><br>
+      I’ve previously worked at Infosys (Finacle functional testing), and interned at HAL and BSNL in embedded systems and telecom research. My research is about making ML smarter *and* safer — with a focus on systems that are secure, ethical, and efficient.
+    </p>
+  </section>
 
-    <!-- Timeline -->
-    <section class="bg-gray-800 shadow-md rounded-lg p-6 max-w-3xl mx-auto">
-      <h3 class="text-2xl font-semibold text-purple-400 mb-6">My Journey</h3>
-      <div class="relative border-l-4 border-purple-500 pl-6 space-y-6">
-        <div class="relative timeline-dot">
-          <h4 class="text-lg font-semibold">2025 – Present: IISc, Bangalore</h4>
-          <p class="text-gray-400 text-sm">Research Intern</p>
-        </div>
-        <div class="relative timeline-dot">
-          <h4 class="text-lg font-semibold">2023 – 2024: PES University</h4>
-          <p class="text-gray-400 text-sm">Research Scholar Faculty</p>
-        </div>
-        <div class="relative timeline-dot">
-          <h4 class="text-lg font-semibold">2021 – 2023: Infosys Ltd.</h4>
-          <p class="text-gray-400 text-sm">Systems Engineer</p>
-        </div>
-        <div class="relative timeline-dot">
-          <h4 class="text-lg font-semibold">2020: HAL & BSNL</h4>
-          <p class="text-gray-400 text-sm">Research Engineer Intern</p>
-        </div>
+  <!-- Qualifications -->
+  <section>
+    <h2 class="text-2xl font-semibold text-purple-400 mb-4">My Qualification</h2>
+    <div class="space-y-4 text-gray-300">
+      <div>
+        <h3 class="font-bold text-blue-400">MS in Computer Science – Georgia Institute of Technology,Atlanta,Georgia,USA.</h3>
+        <p class="text-sm text-gray-400">2024–2026</p>
       </div>
-    </section>
+      <div>
+        <h3 class="font-bold text-blue-400">MS(Research) in Machine Learning – PES University,Bangalore.</h3>
+        <p class="text-sm text-gray-400">2023–2025</p>
+      </div>
+      <div>
+        <h3 class="font-bold text-blue-400">BE in Electronics and Electronics Comm. – Visvesvaraya Technological University, Bangalore.</h3>
+        <p class="text-sm text-gray-400">2017–2021</p>
+      </div>
+    </div>
+  </section>
 
-  </main>
+  <!-- Timeline -->
+  <section class="bg-gray-800 shadow-md rounded-lg p-6">
+    <h3 class="text-2xl font-semibold text-purple-400 mb-6">My Journey</h3>
+    <div class="border-l-4 border-purple-500 pl-6 space-y-6 relative">
+      <div class="relative">
+        <span class="absolute -left-3 top-2 w-3 h-3 rounded-full bg-purple-500 timeline-marker"></span>
+        <h4 class="text-lg font-semibold">2025 – Present: IISc</h4>
+        <p class="text-sm text-gray-400">Research Intern</p>
+      </div>
+      <div class="relative">
+        <span class="absolute -left-3 top-2 w-3 h-3 rounded-full bg-purple-500 timeline-marker"></span>
+        <h4 class="text-lg font-semibold">2023 – 2024: PES University</h4>
+        <p class="text-sm text-gray-400">Research Scholar Faculty</p>
+      </div>
+      <div class="relative">
+        <span class="absolute -left-3 top-2 w-3 h-3 rounded-full bg-purple-500 timeline-marker"></span>
+        <h4 class="text-lg font-semibold">2021 – 2023: Infosys Ltd.</h4>
+        <p class="text-sm text-gray-400">Systems Engineer</p>
+      </div>
+      <div class="relative">
+        <span class="absolute -left-3 top-2 w-3 h-3 rounded-full bg-purple-500 timeline-marker"></span>
+        <h4 class="text-lg font-semibold">2020: HAL & BSNL</h4>
+        <p class="text-sm text-gray-400">Research Engineer Intern</p>
+      </div>
+    </div>
+  </section>
+</main>
 
-  <!-- Footer -->
-  <footer class="text-center py-6 text-sm text-gray-400 bg-gray-800">
-    &copy; 2025 Chethana Prasad K. All rights reserved.
-  </footer>
+<!-- Footer -->
+<footer class="text-center py-6 text-sm text-gray-400 bg-gray-800">
+  &copy; 2025 Chethana Prasad K. All rights reserved.
+</footer>
 
-  <script>
-    function toggleDarkMode() {
-      document.documentElement.classList.toggle('dark');
+<script>
+  // Typing effect
+  const text = "Chethana Prasad K";
+  let i = 0;
+  const speed = 100;
+  function typeWriter() {
+    if (i < text.length) {
+      document.getElementById("typingText").innerHTML += text.charAt(i);
+      i++;
+      setTimeout(typeWriter, speed);
     }
-  </script>
+  }
+  window.onload = typeWriter;
+
+  // Theme toggle
+  const toggleBtn = document.getElementById('toggleTheme');
+  toggleBtn.addEventListener('click', () => {
+    const htmlTag = document.documentElement;
+    htmlTag.classList.toggle('dark');
+    document.body.classList.toggle('bg-white');
+    document.body.classList.toggle('text-gray-900');
+    document.body.classList.toggle('text-gray-100');
+    document.body.classList.toggle('bg-gray-900');
+  });
+</script>
+
 </body>
 </html>
+
