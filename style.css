@@ -91,3 +91,19 @@ footer {
 .animate-ticker {
   animation: ticker-scroll 18s linear infinite;
 }
+/* Auto-scrolling vertical ticker */
+.ticker {
+  display: inline-block;
+  animation: scroll-up 15s linear infinite;
+  position: absolute;
+  top: 100%;
+}
+
+@keyframes scroll-up {
+  0% {
+    top: 100%;
+  }
+  100% {
+    top: -100%;
+  }
+}
