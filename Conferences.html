@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Conferences & Forums — Chethana Prasad K</title>
+  <!-- Uses your existing CSS -->
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <style>
+    /* minimal inline-safe tweaks */
+    .c-container{max-width:1100px;margin:30px auto;padding:0 18px;}
+    .section{margin-bottom:40px;}
+    .card{border:1px solid #e5e7eb;border-radius:10px;padding:16px;margin-bottom:14px;background:#fff;box-shadow:0 4px 10px rgba(0,0,0,0.03);}
+    .card:hover{box-shadow:0 8px 20px rgba(0,0,0,0.06);}
+    .thumb{width:120px;height:80px;border-radius:8px;overflow:hidden;flex-shrink:0;background:#f3f4f6;}
+    .thumb img{width:100%;height:100%;object-fit:cover;}
+    .meta{color:#6b7280;font-size:0.9rem;}
+    .title{font-weight:600;margin-bottom:4px;}
+    .tags{margin-top:6px;display:flex;gap:6px;flex-wrap:wrap;}
+    .tag{font-size:12px;padding:4px 8px;border-radius:999px;background:#f3f4f6;}
+    .expand{display:none;margin-top:12px;border-top:1px solid #e5e7eb;padding-top:10px;}
+    .gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px;margin-top:10px;}
+    .gallery img{width:100%;height:120px;object-fit:cover;border-radius:6px;}
+    video{width:100%;border-radius:8px;margin-top:10px;}
+    .toggle{cursor:pointer;}
+  </style>
+</head>
+<body>
+  <div class="c-container">
+    <p><a href="/" aria-label="Back to home">← Back to Portfolio</a></p>
+
+    <header style="margin-bottom:28px;">
+      <h1>Conferences & Forums</h1>
+      <p style="color:#6b7280;">Proceedings, published papers, and short snaps — all consolidated in one page.</p>
+    </header>
+
+    <!-- Proceedings -->
+    <section class="section" id="proceedings">
+      <h2>Proceedings</h2>
+      <article class="card toggle" onclick="toggleExpand('exp1')">
+        <div style="display:flex;gap:12px;align-items:flex-start;">
+          <div class="thumb"><img src="/conferences/assets/webscix-banner.jpg" alt="Webscix banner"></div>
+          <div>
+            <div class="title">Webscix Conference — Presenter & Participant</div>
+            <div class="meta">Track: Web Systems & AI • 2025</div>
+            <div class="tags"><span class="tag">Proceedings</span><span class="tag">Presentation</span></div>
+          </div>
+        </div>
+        <div class="expand" id="exp1">
+          <p>I presented my work on **Federated Multi-Sensor Learning and Clustering** at the Webscix Conference 2025. The talk focused on feature distribution alignment across radar and LiDAR data using a privacy-preserving federated setup.</p>
+          <p><a href="/conferences/assets/webscix-slides.pdf" target="_blank">View Slides (PDF)</a> |
+             <a href="/conferences/assets/webscix-proceedings.pdf" target="_blank">Conference Proceedings</a></p>
+        </div>
+      </article>
+    </section>
+
+    <!-- Published Paper -->
+    <section class="section" id="papers">
+      <h2>Published Paper</h2>
+      <article class="card toggle" onclick="toggleExpand('exp2')">
+        <div style="display:flex;gap:12px;align-items:flex-start;">
+          <div class="thumb"><img src="/conferences/assets/paper-thumb.png" alt="Paper thumbnail"></div>
+          <div>
+            <div class="title">FedHisto: Feature-histogram-based Clustering for Privacy-preserving Federated Learning</div>
+            <div class="meta">C. P. Kabgere, et al. • ICDML 2025</div>
+            <div class="tags"><span class="tag">Federated Learning</span><span class="tag">Privacy</span></div>
+          </div>
+        </div>
+        <div class="expand" id="exp2">
+          <p><strong>Abstract:</strong> FedHisto introduces a histogram-based client clustering mechanism for federated training that groups clients with similar feature distributions to reduce drift and communication cost. Tested on multi-sensor datasets, the approach improves convergence and privacy performance.</p>
+          <p><a href="/conferences/assets/fedhisto.pdf" target="_blank">Download PDF</a></p>
+          <pre style="background:#f9fafb;padding:8px;border-radius:6px;font-size:0.85rem;">@inproceedings{kabgere2025fedhisto,
+  title={FedHisto: Feature-histogram-based Clustering for Privacy-preserving Federated Learning},
+  author={Kabgere, C. P. and Author, A.},
+  booktitle={ICDML 2025},
+  year={2025}
+}</pre>
+        </div>
+      </article>
+    </section>
+
+    <!-- Short Snaps -->
+    <section class="section" id="snaps">
+      <h2>Short Snaps</h2>
+
+      <!-- Snap 1 -->
+      <article class="card toggle" onclick="toggleExpand('snap1')">
+        <div style="display:flex;gap:12px;align-items:flex-start;">
+          <div class="thumb"><img src="/conferences/assets/snap1-thumb.jpg" alt="Snap 1"></div>
+          <div>
+            <div class="title">Demo: Federated Radar Fusion — short video</div>
+            <div class="meta">Duration 2:35 • 2025</div>
+            <div class="tags"><span class="tag">Video</span><span class="tag">Demo</span></div>
+          </div>
+        </div>
+        <div class="expand" id="snap1">
+          <video controls poster="/conferences/assets/snap1-poster.jpg">
+            <source src="/conferences/assets/snap1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <p>This demo visualizes how radar, LiDAR, and camera clients perform distributed feature aggregation. It highlights the benefits of feature-histogram clustering in federated model updates.</p>
+          <div class="gallery">
+            <img src="/conferences/assets/photo1.jpg" alt="photo1">
+            <img src="/conferences/assets/photo2.jpg" alt="photo2">
+            <img src="/conferences/assets/photo3.jpg" alt="photo3">
+          </div>
+        </div>
+      </article>
+
+      <!-- Snap 2 -->
+      <article class="card toggle" onclick="toggleExpand('snap2')">
+        <div style="display:flex;gap:12px;align-items:flex-start;">
+          <div class="thumb"><img src="/conferences/assets/snap2-thumb.jpg" alt="Snap 2"></div>
+          <div>
+            <div class="title">Pecha Kucha Excerpt — Talk highlight</div>
+            <div class="meta">Duration 1:40 • 2025</div>
+            <div class="tags"><span class="tag">Video</span><span class="tag">Talk</span></div>
+          </div>
+        </div>
+        <div class="expand" id="snap2">
+          <video controls poster="/conferences/assets/snap2-poster.jpg">
+            <source src="/conferences/assets/snap2.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <p>A brief highlight from my Pecha Kucha presentation at ViSTA Lab, IISc, summarizing privacy-preserving graph learning methods and client-side encoding schemes.</p>
+        </div>
+      </article>
+
+      <!-- Gallery -->
+      <div class="card">
+        <h3 style="margin-top:0;">Photo Highlights</h3>
+        <div class="gallery">
+          <img src="/conferences/assets/photo4.jpg" alt="photo4">
+          <img src="/conferences/assets/photo5.jpg" alt="photo5">
+          <img src="/conferences/assets/photo6.jpg" alt="photo6">
+          <img src="/conferences/assets/photo7.jpg" alt="photo7">
+          <img src="/conferences/assets/photo8.jpg" alt="photo8">
+        </div>
+      </div>
+    </section>
+
+    <footer style="margin-top:30px;color:#6b7280;font-size:0.95rem;text-align:center;">
+      <p>© 2025 Chethana Prasad K — Conferences & Forums</p>
+    </footer>
+  </div>
+
+  <script>
+    function toggleExpand(id){
+      const el = document.getElementById(id);
+      if(!el) return;
+      el.style.display = (el.style.display === "block") ? "none" : "block";
+    }
+  </script>
+</body>
+</html>
