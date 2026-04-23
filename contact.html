@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact — Chethana Prasad K</title>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    .contact-page { padding: 5rem 0 6rem; }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 400px;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    /* Left — info */
+    .contact-intro {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      color: var(--text2);
+      line-height: 1.85;
+      margin-bottom: 3rem;
+      font-style: italic;
+    }
+
+    .open-to-section { margin-bottom: 3rem; }
+
+    .ot-title {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--coral);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .ot-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+    }
+
+    .ot-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 0.85rem 1rem;
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      background: #fff;
+      font-size: 13.5px;
+      color: var(--text2);
+      line-height: 1.4;
+    }
+
+    .ot-icon {
+      font-size: 1rem;
+      margin-top: 1px;
+      flex-shrink: 0;
+    }
+
+    /* Social links */
+    .social-links { display: flex; flex-direction: column; gap: 2px; }
+
+    .social-link {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 1.25rem;
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      background: #fff;
+      color: var(--text2);
+      text-decoration: none;
+      transition: all 0.18s;
+      font-size: 14px;
+    }
+
+    .social-link:hover {
+      border-color: var(--coral);
+      color: var(--navy);
+      transform: translateX(4px);
+    }
+
+    .social-link-icon {
+      width: 36px; height: 36px;
+      border-radius: 5px;
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--mono);
+      font-size: 13px;
+      font-weight: 600;
+      flex-shrink: 0;
+    }
+
+    .sli-mail   { background: rgba(232,93,47,0.1); color: var(--coral); }
+    .sli-li     { background: rgba(15,31,61,0.08); color: var(--navy2); }
+    .sli-gs     { background: rgba(13,122,110,0.08); color: var(--teal); }
+    .sli-gh     { background: rgba(122,117,103,0.1); color: var(--muted); }
+    .sli-phone  { background: rgba(245,166,35,0.1); color: #8a5c00; }
+
+    .sl-text {}
+    .sl-label { font-weight: 500; color: var(--navy); font-size: 13.5px; line-height: 1; margin-bottom: 2px; }
+    .sl-val   { font-family: var(--mono); font-size: 11px; color: var(--muted); letter-spacing: 0.03em; }
+
+    .sl-arrow {
+      margin-left: auto;
+      font-size: 1rem;
+      color: var(--muted2);
+      transition: transform 0.18s;
+    }
+
+    .social-link:hover .sl-arrow { transform: translateX(3px); color: var(--coral); }
+
+    /* Right — form-style direct links panel */
+    .contact-panel {
+      position: sticky;
+      top: 84px;
+    }
+
+    .panel-card {
+      background: var(--navy);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .panel-top {
+      padding: 2.5rem 2rem 2rem;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .panel-tag {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      color: var(--coral);
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+
+    .panel-title {
+      font-family: var(--serif);
+      font-size: 1.4rem;
+      color: #fff;
+      font-weight: 500;
+      line-height: 1.3;
+      margin-bottom: 0.5rem;
+    }
+
+    .panel-sub {
+      font-size: 13.5px;
+      color: rgba(255,255,255,0.45);
+      line-height: 1.7;
+    }
+
+    .panel-body { padding: 2rem; }
+
+    .panel-cta-primary {
+      display: block;
+      text-align: center;
+      background: var(--coral);
+      color: #fff;
+      font-family: var(--mono);
+      font-size: 13px;
+      letter-spacing: 0.06em;
+      padding: 14px;
+      border-radius: 5px;
+      margin-bottom: 0.75rem;
+      text-decoration: none;
+      transition: background 0.18s;
+      font-weight: 500;
+    }
+
+    .panel-cta-primary:hover { background: var(--coral2); color: #fff; }
+
+    .panel-cta-secondary {
+      display: block;
+      text-align: center;
+      background: rgba(255,255,255,0.05);
+      color: rgba(255,255,255,0.55);
+      font-family: var(--mono);
+      font-size: 12px;
+      letter-spacing: 0.05em;
+      padding: 12px;
+      border-radius: 5px;
+      border: 1px solid rgba(255,255,255,0.1);
+      text-decoration: none;
+      transition: all 0.18s;
+      margin-bottom: 2rem;
+    }
+
+    .panel-cta-secondary:hover {
+      background: rgba(255,255,255,0.08);
+      color: rgba(255,255,255,0.8);
+    }
+
+    .panel-divider {
+      border: none;
+      border-top: 1px solid rgba(255,255,255,0.07);
+      margin-bottom: 1.5rem;
+    }
+
+    .panel-status {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 13px;
+      color: rgba(255,255,255,0.4);
+    }
+
+    .status-green {
+      display: inline-flex; align-items: center; gap: 5px;
+      font-family: var(--mono);
+      font-size: 10.5px;
+      color: #4ade80;
+    }
+
+    .status-green::before {
+      content: '';
+      width: 6px; height: 6px;
+      background: #4ade80;
+      border-radius: 50%;
+      animation: blink 2s ease-in-out infinite;
+    }
+
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+    /* Availability grid */
+    .avail-section { padding: 4rem 0; border-top: 1px solid var(--border); }
+
+    .avail-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .avail-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 1.5rem;
+      border-top: 3px solid;
+    }
+
+    .avail-card.yes { border-top-color: var(--teal); }
+    .avail-card.maybe { border-top-color: var(--saffron); }
+    .avail-card.no { border-top-color: var(--border2); }
+
+    .avail-type {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+    .avail-card.yes .avail-type   { color: var(--teal); }
+    .avail-card.maybe .avail-type { color: #8a5c00; }
+    .avail-card.no .avail-type    { color: var(--muted2); }
+
+    .avail-title { font-size: 14px; font-weight: 500; color: var(--navy); margin-bottom: 4px; }
+    .avail-detail { font-size: 12.5px; color: var(--muted); line-height: 1.55; }
+
+    @media (max-width: 860px) {
+      .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .contact-panel { position: static; }
+      .ot-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<div class="page-shell">
+
+<nav class="site-nav">
+  <a href="index.html" class="nav-brand">
+    <span class="nav-brand-name">Chethana Prasad K</span>
+    <span class="nav-brand-title">Research Engineer · AI Systems</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="research.html">Research</a></li>
+    <li><a href="experience.html">Experience</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="kathak.html">Kathak</a></li>
+    <li><a href="blog.html">Notes</a></li>
+    <li><a href="contact.html" class="active">Contact</a></li>
+  </ul>
+  <a href="mailto:chethana1999@gmail.com" class="btn nav-cta">Email Me</a>
+</nav>
+
+<div class="page-hero">
+  <div class="container page-hero-inner">
+    <div class="page-hero-label">Contact</div>
+    <h1 class="page-hero-title">Let's talk research,<br>collaboration, or PhDs.</h1>
+    <p class="page-hero-sub">I respond to every message, usually within 24 hours. No recruiters for roles I haven't applied for, please.</p>
+  </div>
+</div>
+
+<div class="container">
+  <div class="contact-page">
+    <div class="contact-grid">
+
+      <!-- Left -->
+      <div>
+        <p class="contact-intro">
+          I'm actively seeking PhD positions in machine learning, trustworthy AI, and distributed systems. I'm also open to research collaborations, reviewing papers in my area, and conversations about the future of privacy-preserving AI — especially in the Indian regulatory context.
+        </p>
+
+        <div class="open-to-section">
+          <div class="ot-title">Open To</div>
+          <div class="ot-grid">
+            <div class="ot-item"><span class="ot-icon">🎓</span>PhD applications &amp; inquiries</div>
+            <div class="ot-item"><span class="ot-icon">🤝</span>Research collaboration</div>
+            <div class="ot-item"><span class="ot-icon">📄</span>Paper review requests</div>
+            <div class="ot-item"><span class="ot-icon">🎙</span>Speaking &amp; workshops</div>
+            <div class="ot-item"><span class="ot-icon">💬</span>Technical discussions</div>
+            <div class="ot-item"><span class="ot-icon">🏛</span>Industry research roles</div>
+          </div>
+        </div>
+
+        <div class="social-links">
+          <a href="mailto:chethana1999@gmail.com" class="social-link">
+            <div class="social-link-icon sli-mail">✉</div>
+            <div class="sl-text">
+              <div class="sl-label">Email</div>
+              <div class="sl-val">chethana1999@gmail.com</div>
+            </div>
+            <span class="sl-arrow">→</span>
+          </a>
+          <a href="https://www.linkedin.com/in/chethana-prasad-k-42a618213" target="_blank" class="social-link">
+            <div class="social-link-icon sli-li">in</div>
+            <div class="sl-text">
+              <div class="sl-label">LinkedIn</div>
+              <div class="sl-val">linkedin.com/in/chethana-prasad-k</div>
+            </div>
+            <span class="sl-arrow">→</span>
+          </a>
+          <a href="https://scholar.google.com/citations?user=dVHXlxYAAAAJ&hl=en" target="_blank" class="social-link">
+            <div class="social-link-icon sli-gs">G</div>
+            <div class="sl-text">
+              <div class="sl-label">Google Scholar</div>
+              <div class="sl-val">8 publications · Kabgere</div>
+            </div>
+            <span class="sl-arrow">→</span>
+          </a>
+          <a href="https://chethanaprasadk.github.io/" target="_blank" class="social-link">
+            <div class="social-link-icon sli-gh">⌘</div>
+            <div class="sl-text">
+              <div class="sl-label">GitHub / Portfolio</div>
+              <div class="sl-val">chethanaprasadk.github.io</div>
+            </div>
+            <span class="sl-arrow">→</span>
+          </a>
+          <a href="tel:+919901946812" class="social-link">
+            <div class="social-link-icon sli-phone">#</div>
+            <div class="sl-text">
+              <div class="sl-label">Phone (India)</div>
+              <div class="sl-val">+91 9901946812</div>
+            </div>
+            <span class="sl-arrow">→</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Right panel -->
+      <div class="contact-panel">
+        <div class="panel-card">
+          <div class="panel-top">
+            <div class="panel-tag">Currently Available</div>
+            <div class="panel-title">PhD inquiries &amp; research collaboration</div>
+            <div class="panel-sub">Targeting 2026–2027 PhD intake. Open to discussions with advisors working on federated learning, trustworthy AI, or data governance.</div>
+          </div>
+          <div class="panel-body">
+            <a href="mailto:chethana1999@gmail.com?subject=PhD Inquiry — [Your University]" class="panel-cta-primary">
+              Send PhD Inquiry ↗
+            </a>
+            <a href="mailto:chethana1999@gmail.com?subject=Research Collaboration" class="panel-cta-secondary">
+              Propose Collaboration
+            </a>
+            <hr class="panel-divider"/>
+            <div class="panel-status">
+              <span class="status-green">Actively responding</span>
+              <span>· Usually replies within 24h</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- Availability section -->
+<div class="avail-section">
+  <div class="container">
+    <div class="sec-header">
+      <span class="sec-num">Availability</span>
+      <h2 class="sec-title">What I'm open to right now</h2>
+      <div class="sec-line"></div>
+    </div>
+    <div class="avail-grid">
+      <div class="avail-card yes">
+        <div class="avail-type">Yes ✓</div>
+        <div class="avail-title">PhD Applications</div>
+        <div class="avail-detail">Targeting 2026–27 intake. Areas: FL, privacy, distributed ML, data governance.</div>
+      </div>
+      <div class="avail-card yes">
+        <div class="avail-type">Yes ✓</div>
+        <div class="avail-title">Research Collaboration</div>
+        <div class="avail-detail">Joint papers, dataset sharing, reviewing — if it overlaps with my threads.</div>
+      </div>
+      <div class="avail-card yes">
+        <div class="avail-type">Yes ✓</div>
+        <div class="avail-title">Industry Research Roles</div>
+        <div class="avail-detail">Research scientist / ML engineer roles at labs with strong publication culture.</div>
+      </div>
+      <div class="avail-card maybe">
+        <div class="avail-type">Maybe ◐</div>
+        <div class="avail-title">Consulting / Advisory</div>
+        <div class="avail-detail">AI governance or federated ML consulting — depends on scope and fit.</div>
+      </div>
+      <div class="avail-card maybe">
+        <div class="avail-type">Maybe ◐</div>
+        <div class="avail-title">Speaking / Workshops</div>
+        <div class="avail-detail">Federated learning, privacy-preserving AI, or AI governance topics.</div>
+      </div>
+      <div class="avail-card no">
+        <div class="avail-type">Not now ✕</div>
+        <div class="avail-title">Unsolicited Recruiting</div>
+        <div class="avail-detail">For roles not in ML research. Please check this page before reaching out.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-left">
+    <div class="footer-name">Chethana Prasad K</div>
+    <div class="footer-sub">Research Engineer · Bengaluru, India · 2026</div>
+    <div class="footer-links-row">
+      <a href="mailto:chethana1999@gmail.com">Email</a>
+      <a href="https://www.linkedin.com/in/chethana-prasad-k-42a618213" target="_blank">LinkedIn</a>
+      <a href="https://scholar.google.com/citations?user=dVHXlxYAAAAJ&hl=en" target="_blank">Google Scholar</a>
+      <a href="https://chethanaprasadk.github.io/" target="_blank">GitHub</a>
+    </div>
+  </div>
+  <div class="footer-right">
+    <span class="footer-coral-dot"></span>Bengaluru, KA<br>
+    IIIT-B · Georgia Tech<br>
+    © 2026 Chethana Prasad K
+  </div>
+</footer>
+
+</div>
+</body>
+</html>

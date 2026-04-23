@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kathak — Chethana Prasad K</title>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    /* ---- Kathak page overrides ---- */
+    :root {
+      --kathak-gold: #c9963a;
+      --kathak-deep: #1a0a00;
+      --kathak-rust: #8b3a1a;
+    }
+
+    .kathak-hero {
+      background: var(--navy);
+      min-height: 480px;
+      display: flex;
+      align-items: flex-end;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* geometric mandala bg */
+    .kathak-hero::before {
+      content: '';
+      position: absolute;
+      right: -120px; top: 50%;
+      transform: translateY(-50%);
+      width: 600px; height: 600px;
+      border-radius: 50%;
+      border: 1px solid rgba(201,150,58,0.12);
+      box-shadow:
+        0 0 0 40px rgba(201,150,58,0.05),
+        0 0 0 80px rgba(201,150,58,0.04),
+        0 0 0 140px rgba(201,150,58,0.03),
+        0 0 0 210px rgba(201,150,58,0.02);
+      pointer-events: none;
+    }
+
+    .kathak-hero-inner {
+      position: relative;
+      z-index: 1;
+      padding: 4rem 0 4rem;
+      width: 100%;
+    }
+
+    .kh-label {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      color: var(--kathak-gold);
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .kh-title {
+      font-family: var(--serif);
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      font-weight: 500;
+      color: #fff;
+      line-height: 1.1;
+      margin-bottom: 1rem;
+    }
+
+    .kh-title em {
+      font-style: italic;
+      color: var(--kathak-gold);
+    }
+
+    .kh-sub {
+      font-size: 15px;
+      color: rgba(255,255,255,0.5);
+      max-width: 500px;
+      line-height: 1.75;
+    }
+
+    /* Content */
+    .kathak-body {
+      padding: 5rem 0;
+    }
+
+    .k-two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+      margin-bottom: 5rem;
+    }
+
+    .prose h3 {
+      font-family: var(--serif);
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: var(--navy);
+      margin-bottom: 0.75rem;
+    }
+
+    .prose p {
+      font-size: 15px;
+      color: var(--text2);
+      line-height: 1.85;
+      margin-bottom: 1.1rem;
+    }
+
+    .prose p:first-of-type {
+      font-family: var(--serif);
+      font-size: 16px;
+      line-height: 1.9;
+    }
+
+    /* Achievement card */
+    .ach-card {
+      background: var(--navy);
+      border-radius: 8px;
+      padding: 2.5rem;
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .ach-card::before {
+      content: '';
+      position: absolute;
+      top: -30px; right: -30px;
+      width: 140px; height: 140px;
+      border-radius: 50%;
+      border: 1px solid rgba(201,150,58,0.2);
+    }
+
+    .ach-card::after {
+      content: '';
+      position: absolute;
+      top: -10px; right: -10px;
+      width: 80px; height: 80px;
+      border-radius: 50%;
+      border: 1px solid rgba(201,150,58,0.15);
+    }
+
+    .ach-label {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      color: var(--kathak-gold);
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+
+    .ach-title {
+      font-family: var(--serif);
+      font-size: 1.5rem;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+      line-height: 1.3;
+    }
+
+    .ach-sub {
+      font-size: 13px;
+      color: rgba(255,255,255,0.45);
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+
+    .ach-detail {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .ach-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      font-size: 13px;
+      color: rgba(255,255,255,0.55);
+      padding: 0.5rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .ach-row:last-child { border-bottom: none; }
+
+    .ach-row-label {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: rgba(255,255,255,0.25);
+      letter-spacing: 0.06em;
+      min-width: 80px;
+      padding-top: 1px;
+    }
+
+    /* Parallels section */
+    .parallels-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .parallel-block {
+      background: var(--cream);
+      padding: 2rem 1.75rem;
+      transition: background 0.2s;
+    }
+
+    .parallel-block:hover { background: #fff; }
+
+    .pb-icon {
+      font-size: 1.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .pb-research {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--coral);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .pb-kathak {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--kathak-gold);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .pb-text {
+      font-size: 13px;
+      color: var(--text2);
+      line-height: 1.6;
+    }
+
+    .parallels-header {
+      margin-bottom: 1.5rem;
+    }
+
+    .parallels-header p {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 1rem;
+      color: var(--muted);
+      margin-top: 0.4rem;
+      line-height: 1.7;
+    }
+
+    @media (max-width: 760px) {
+      .k-two-col { grid-template-columns: 1fr; gap: 2.5rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="page-shell">
+
+<nav class="site-nav">
+  <a href="index.html" class="nav-brand">
+    <span class="nav-brand-name">Chethana Prasad K</span>
+    <span class="nav-brand-title">Research Engineer · AI Systems</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="research.html">Research</a></li>
+    <li><a href="experience.html">Experience</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="kathak.html" class="active">Kathak</a></li>
+    <li><a href="blog.html">Notes</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a href="contact.html" class="btn nav-cta">Get in Touch</a>
+</nav>
+
+<!-- Hero -->
+<div class="kathak-hero">
+  <div class="container kathak-hero-inner">
+    <div class="kh-label">Beyond Research</div>
+    <h1 class="kh-title">The discipline of<br><em>Kathak</em> dance.</h1>
+    <p class="kh-sub">Rhythm, precision, and expression — the same qualities that define good research also define classical Indian dance.</p>
+  </div>
+</div>
+
+<!-- Body -->
+<div class="container">
+  <div class="kathak-body">
+
+    <div class="k-two-col">
+      <!-- Prose -->
+      <div class="prose">
+        <h3>A practice, not a hobby.</h3>
+        <p>
+          I've been training in Kathak for many years — it is one of the eight classical dance forms of India, originating in the temples and courts of North India and characterized by intricate footwork, expressive gestures (mudras), and rapid spins (chakkar).
+        </p>
+        <p>
+          Kathak demands the same qualities I value in research: sustained attention, iterative refinement, the ability to communicate complex ideas through precise movements, and the patience to do something wrong many times before you do it right. A tukra practiced 500 times is not unlike a model trained through hundreds of iterations.
+        </p>
+        <p>
+          In 2025, I earned a <strong>Distinction</strong> in my Kathak Pariksha from ABGMV (Akhil Bharatiya Gandharva Mahavidyalaya Mandal) — one of India's foremost classical music and dance examination bodies. This is a formal credential that reflects years of structured, graded training and performance evaluation.
+        </p>
+        <p>
+          I mention Kathak on my academic portfolio not as a curiosity, but because I believe the people who bring the most to research are often those who have deeply pursued something outside of it.
+        </p>
+      </div>
+
+      <!-- Achievement card -->
+      <div class="ach-card">
+        <div class="ach-label">Certification · 2025</div>
+        <div class="ach-title">Kathak Pariksha<br>— Distinction</div>
+        <div class="ach-sub">Formal examination certification from one of India's oldest and most respected classical arts bodies.</div>
+        <div class="ach-detail">
+          <div class="ach-row">
+            <span class="ach-row-label">Body</span>
+            <span>Akhil Bharatiya Gandharva Mahavidyalaya Mandal (ABGMV)</span>
+          </div>
+          <div class="ach-row">
+            <span class="ach-row-label">Grade</span>
+            <span>Distinction</span>
+          </div>
+          <div class="ach-row">
+            <span class="ach-row-label">Year</span>
+            <span>2025</span>
+          </div>
+          <div class="ach-row">
+            <span class="ach-row-label">Form</span>
+            <span>Kathak — North Indian classical dance</span>
+          </div>
+          <div class="ach-row">
+            <span class="ach-row-label">Origin</span>
+            <span>Lucknow &amp; Jaipur gharana traditions</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Parallels section -->
+    <div class="parallels-header">
+      <div class="sec-header" style="margin-bottom: 0.5rem;">
+        <span class="sec-num">Parallels</span>
+        <h2 class="sec-title">Research &amp; Kathak — more similar than you'd think.</h2>
+        <div class="sec-line"></div>
+      </div>
+      <p>Each discipline reinforces the other in ways I didn't expect when I began either.</p>
+    </div>
+
+    <div class="parallels-grid">
+      <div class="parallel-block">
+        <div class="pb-icon">⟳</div>
+        <div class="pb-research">Research</div>
+        <div class="pb-text" style="margin-bottom:0.5rem; color: var(--coral); font-size:12px;">Iterative experimentation</div>
+        <div class="pb-kathak">Kathak</div>
+        <div class="pb-text">Tukras repeated until the timing is exact — every 1/16th beat landing precisely.</div>
+      </div>
+      <div class="parallel-block">
+        <div class="pb-icon">◈</div>
+        <div class="pb-research">Research</div>
+        <div class="pb-text" style="margin-bottom:0.5rem; color: var(--coral); font-size:12px;">Communicating complex ideas simply</div>
+        <div class="pb-kathak">Kathak</div>
+        <div class="pb-text">Abhinaya — conveying an entire narrative through gesture, gaze, and micro-expression.</div>
+      </div>
+      <div class="parallel-block">
+        <div class="pb-icon">⌖</div>
+        <div class="pb-research">Research</div>
+        <div class="pb-text" style="margin-bottom:0.5rem; color: var(--coral); font-size:12px;">Structured constraint breeds creativity</div>
+        <div class="pb-kathak">Kathak</div>
+        <div class="pb-text">Taal (time cycles) are fixed, but improvisation within them is infinite.</div>
+      </div>
+      <div class="parallel-block">
+        <div class="pb-icon">◎</div>
+        <div class="pb-research">Research</div>
+        <div class="pb-text" style="margin-bottom:0.5rem; color: var(--coral); font-size:12px;">Deep focus for long stretches</div>
+        <div class="pb-kathak">Kathak</div>
+        <div class="pb-text">A 45-minute solo performance requires the same flow state as writing a tight proof or debugging a training loop.</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-left">
+    <div class="footer-name">Chethana Prasad K</div>
+    <div class="footer-sub">Research Engineer · Bengaluru, India · 2026</div>
+    <div class="footer-links-row">
+      <a href="mailto:chethana1999@gmail.com">Email</a>
+      <a href="https://www.linkedin.com/in/chethana-prasad-k-42a618213" target="_blank">LinkedIn</a>
+      <a href="https://scholar.google.com/citations?user=dVHXlxYAAAAJ&hl=en" target="_blank">Google Scholar</a>
+    </div>
+  </div>
+  <div class="footer-right">
+    <span class="footer-coral-dot"></span>Bengaluru, KA<br>
+    IIIT-B · Georgia Tech<br>
+    © 2026 Chethana Prasad K
+  </div>
+</footer>
+
+</div>
+</body>
+</html>

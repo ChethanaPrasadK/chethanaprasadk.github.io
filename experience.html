@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Experience — Chethana Prasad K</title>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    .exp-page { padding: 4rem 0; }
+
+    /* Timeline */
+    .timeline { position: relative; padding-left: 2rem; }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 8px; bottom: 0;
+      width: 1px;
+      background: linear-gradient(to bottom, var(--coral), var(--border) 85%);
+    }
+    .tl-item { position: relative; margin-bottom: 3.5rem; }
+    .tl-dot {
+      position: absolute;
+      left: -2.35rem; top: 5px;
+      width: 10px; height: 10px;
+      border: 2px solid var(--border2);
+      background: var(--cream);
+      border-radius: 1px;
+      transform: rotate(45deg);
+    }
+    .tl-item.current .tl-dot {
+      border-color: var(--coral);
+      background: var(--coral);
+    }
+    .tl-date {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--muted2);
+      letter-spacing: 0.06em;
+      margin-bottom: 0.35rem;
+    }
+    .tl-role {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      font-weight: 500;
+      color: var(--navy);
+      margin-bottom: 2px;
+    }
+    .tl-org {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--coral);
+      letter-spacing: 0.04em;
+      margin-bottom: 0.75rem;
+    }
+    .tl-desc {
+      font-size: 14px;
+      color: var(--text2);
+      line-height: 1.8;
+      max-width: 640px;
+      margin-bottom: 0.75rem;
+    }
+    .tl-tags { display: flex; flex-wrap: wrap; gap: 5px; }
+
+    /* Skills section */
+    .skills-section { padding: 4rem 0; border-top: 1px solid var(--border); }
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.25rem;
+    }
+    .skill-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 1.5rem;
+    }
+    .skill-cat {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--coral);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .skill-cat::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+    .skill-row {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 5px 0;
+      font-size: 13px;
+    }
+    .skill-name { color: var(--text2); }
+    .skill-level {
+      font-family: var(--mono);
+      font-size: 10px;
+      padding: 2px 8px;
+      border-radius: 2px;
+    }
+    .sl-adv { background: rgba(13,122,110,0.08); color: var(--teal); border: 1px solid rgba(13,122,110,0.2); }
+    .sl-prof { background: rgba(15,31,61,0.06); color: var(--navy2); border: 1px solid rgba(15,31,61,0.15); }
+    .sl-fam  { background: rgba(122,117,103,0.08); color: var(--muted); border: 1px solid var(--border); }
+
+    /* Proficiency bars */
+    .bar-wrap { margin-top: 3px; height: 3px; background: var(--cream3); border-radius: 2px; overflow: hidden; }
+    .bar-fill { height: 100%; border-radius: 2px; background: var(--coral); transition: width 1s ease; }
+  </style>
+</head>
+<body>
+<div class="page-shell">
+
+<nav class="site-nav">
+  <a href="index.html" class="nav-brand">
+    <span class="nav-brand-name">Chethana Prasad K</span>
+    <span class="nav-brand-title">Research Engineer · AI Systems</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="research.html">Research</a></li>
+    <li><a href="experience.html" class="active">Experience</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="kathak.html">Kathak</a></li>
+    <li><a href="blog.html">Notes</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a href="contact.html" class="btn nav-cta">Get in Touch</a>
+</nav>
+
+<div class="page-hero">
+  <div class="container page-hero-inner">
+    <div class="page-hero-label">Experience &amp; Skills</div>
+    <h1 class="page-hero-title">5+ years building at the<br>frontier of ML research.</h1>
+    <p class="page-hero-sub">From enterprise systems at Infosys to federated learning at IISc and national AI infrastructure at IIIT-B.</p>
+  </div>
+</div>
+
+<div class="container">
+  <div class="exp-page">
+
+    <div class="sec-header">
+      <span class="sec-num">01</span>
+      <h2 class="sec-title">Work Experience</h2>
+      <div class="sec-line"></div>
+    </div>
+
+    <div class="timeline">
+
+      <div class="tl-item current">
+        <div class="tl-dot"></div>
+        <div class="tl-date">Sep 2025 — Present</div>
+        <div class="tl-role">Pre-Doctoral Researcher / Research Associate</div>
+        <div class="tl-org">IIIT Bangalore · WSL Lab, Dept. of Data Science &amp; Artificial Intelligence</div>
+        <p class="tl-desc">
+          Leading pre-doctoral research on data governance with a focus on NLP-driven and agentic AI systems. Building <em>Anumati</em> — a large-scale consent management platform for digital public data ecosystems with alignment to DPDP and GDPR regulatory frameworks.
+          Managing ongoing project deliverables and collaborating with IISc–CDPG, CDAC, and IUDX on national data infrastructure initiatives under MoHUA and MeitY.
+        </p>
+        <div class="tl-tags">
+          <span class="tag coral">NLP</span>
+          <span class="tag coral">Agentic AI</span>
+          <span class="tag teal">Data Governance</span>
+          <span class="tag teal">DPDP / GDPR</span>
+          <span class="tag navy">Consent Management</span>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-date">Jan 2025 — Sep 2025</div>
+        <div class="tl-role">Research Associate</div>
+        <div class="tl-org">Indian Institute of Science (IISc) · Centre for Data Science (CDS)</div>
+        <p class="tl-desc">
+          Researched federated machine learning algorithms and privacy-preserving aggregation frameworks at IISc CDS. Analyzed client heterogeneity, clustering strategies, and performance–privacy trade-offs in distributed learning systems. Produced a survey on FL in healthcare and multi-modal fusion.
+        </p>
+        <div class="tl-tags">
+          <span class="tag coral">Federated Learning</span>
+          <span class="tag coral">Differential Privacy</span>
+          <span class="tag teal">Distributed ML</span>
+          <span class="tag navy">PyTorch</span>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-date">2023 — Dec 2024</div>
+        <div class="tl-role">Research Scholar Faculty</div>
+        <div class="tl-org">CRAIs Labs, PES University · Bengaluru</div>
+        <p class="tl-desc">
+          Graduate Teaching Assistant for undergraduate CS courses and computational robotics labs. Supervised student research projects in collaboration with academic and industry partners. Conducted parallel M.Tech research on geometric coherence in federated GNNs and quantum aggregation.
+        </p>
+        <div class="tl-tags">
+          <span class="tag coral">Graph Neural Networks</span>
+          <span class="tag teal">Teaching</span>
+          <span class="tag navy">Robotics</span>
+          <span class="tag navy">Research Supervision</span>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-date">2021 — Dec 2023</div>
+        <div class="tl-role">Systems Engineer</div>
+        <div class="tl-org">Infosys Ltd. · Bengaluru</div>
+        <p class="tl-desc">
+          Testing and validation of core banking data systems (Finacle). Improved testing workflows for database and front-end components, reducing post-deployment defects across release cycles. Gained deep exposure to enterprise software reliability and QA processes.
+        </p>
+        <div class="tl-tags">
+          <span class="tag">Core Banking</span>
+          <span class="tag">QA / Testing</span>
+          <span class="tag">Finacle</span>
+          <span class="tag">Data Validation</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- Skills -->
+<div class="skills-section">
+  <div class="container">
+    <div class="sec-header">
+      <span class="sec-num">02</span>
+      <h2 class="sec-title">Technical Skills</h2>
+      <div class="sec-line"></div>
+    </div>
+    <div class="skills-grid">
+
+      <div class="skill-card">
+        <div class="skill-cat">Languages</div>
+        <div class="skill-row">
+          <span class="skill-name">Python</span>
+          <span class="skill-level sl-adv">Advanced</span>
+        </div>
+        <div class="bar-wrap"><div class="bar-fill" style="width:95%"></div></div>
+        <div class="skill-row">
+          <span class="skill-name">Java</span>
+          <span class="skill-level sl-adv">Advanced</span>
+        </div>
+        <div class="bar-wrap"><div class="bar-fill" style="width:88%"></div></div>
+        <div class="skill-row">
+          <span class="skill-name">C++</span>
+          <span class="skill-level sl-prof">Proficient</span>
+        </div>
+        <div class="bar-wrap"><div class="bar-fill" style="width:72%"></div></div>
+        <div class="skill-row">
+          <span class="skill-name">SQL</span>
+          <span class="skill-level sl-prof">Proficient</span>
+        </div>
+        <div class="bar-wrap"><div class="bar-fill" style="width:70%"></div></div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-cat">ML / Deep Learning</div>
+        <div class="skill-row"><span class="skill-name">PyTorch</span><span class="skill-level sl-adv">Advanced</span></div>
+        <div class="bar-wrap"><div class="bar-fill" style="width:92%"></div></div>
+        <div class="skill-row"><span class="skill-name">Graph Neural Networks</span><span class="skill-level sl-adv">Advanced</span></div>
+        <div class="bar-wrap"><div class="bar-fill" style="width:90%"></div></div>
+        <div class="skill-row"><span class="skill-name">Federated Learning</span><span class="skill-level sl-adv">Advanced</span></div>
+        <div class="bar-wrap"><div class="bar-fill" style="width:93%"></div></div>
+        <div class="skill-row"><span class="skill-name">Differential Privacy</span><span class="skill-level sl-adv">Advanced</span></div>
+        <div class="bar-wrap"><div class="bar-fill" style="width:88%"></div></div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-cat">Systems &amp; Infrastructure</div>
+        <div class="skill-row"><span class="skill-name">CUDA / GPU Acceleration</span><span class="skill-level sl-prof">Proficient</span></div>
+        <div class="bar-wrap"><div class="bar-fill" style="width:78%"></div></div>
+        <div class="skill-row"><span class="skill-name">Docker / Linux</span><span class="skill-level sl-adv">Advanced</span></div>
+        <div class="bar-wrap"><div class="bar-fill" style="width:85%"></div></div>
+        <div class="skill-row"><span class="skill-name">CI/CD for ML</span><span class="skill-level sl-prof">Proficient</span></div>
+        <div class="bar-wrap"><div class="bar-fill" style="width:74%"></div></div>
+        <div class="skill-row"><span class="skill-name">Distributed Computing</span><span class="skill-level sl-prof">Proficient</span></div>
+        <div class="bar-wrap"><div class="bar-fill" style="width:80%"></div></div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-cat">Responsible AI &amp; NLP</div>
+        <div class="skill-row"><span class="skill-name">AI Governance Frameworks</span><span class="skill-level sl-adv">Advanced</span></div>
+        <div class="bar-wrap"><div class="bar-fill" style="width:90%"></div></div>
+        <div class="skill-row"><span class="skill-name">NLP-Driven Systems</span><span class="skill-level sl-adv">Advanced</span></div>
+        <div class="bar-wrap"><div class="bar-fill" style="width:85%"></div></div>
+        <div class="skill-row"><span class="skill-name">Algorithmic Fairness</span><span class="skill-level sl-prof">Proficient</span></div>
+        <div class="bar-wrap"><div class="bar-fill" style="width:76%"></div></div>
+        <div class="skill-row"><span class="skill-name">Quantum ML (NISQ)</span><span class="skill-level sl-fam">Familiar</span></div>
+        <div class="bar-wrap"><div class="bar-fill" style="width:60%"></div></div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-left">
+    <div class="footer-name">Chethana Prasad K</div>
+    <div class="footer-sub">Research Engineer · Bengaluru, India · 2026</div>
+    <div class="footer-links-row">
+      <a href="mailto:chethana1999@gmail.com">Email</a>
+      <a href="https://www.linkedin.com/in/chethana-prasad-k-42a618213" target="_blank">LinkedIn</a>
+      <a href="https://scholar.google.com/citations?user=dVHXlxYAAAAJ&hl=en" target="_blank">Google Scholar</a>
+    </div>
+  </div>
+  <div class="footer-right">
+    <span class="footer-coral-dot"></span>Bengaluru, KA<br>
+    IIIT-B · Georgia Tech<br>
+    © 2026 Chethana Prasad K
+  </div>
+</footer>
+
+</div>
+</body>
+</html>

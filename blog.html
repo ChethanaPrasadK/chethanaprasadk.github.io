@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Notes — Chethana Prasad K</title>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    .notes-page { padding: 4rem 0 6rem; }
+
+    .notes-layout {
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    /* Note card */
+    .note-list { display: flex; flex-direction: column; gap: 0; }
+
+    .note-item {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: 2rem;
+      padding: 2.25rem 0;
+      border-bottom: 1px solid var(--border);
+      transition: background 0.15s;
+      cursor: default;
+    }
+
+    .note-item:hover .note-title { color: var(--coral); }
+
+    .note-date-col {
+      padding-top: 4px;
+    }
+
+    .note-date {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--muted2);
+      letter-spacing: 0.06em;
+      line-height: 1.6;
+    }
+
+    .note-cat {
+      display: inline-block;
+      margin-top: 6px;
+      font-family: var(--mono);
+      font-size: 9.5px;
+      padding: 2px 7px;
+      border-radius: 2px;
+      letter-spacing: 0.06em;
+    }
+    .nc-ml    { background: rgba(232,93,47,0.08); color: var(--coral); border: 1px solid rgba(232,93,47,0.2); }
+    .nc-priv  { background: rgba(13,122,110,0.07); color: var(--teal); border: 1px solid rgba(13,122,110,0.18); }
+    .nc-gov   { background: rgba(15,31,61,0.06); color: var(--navy2); border: 1px solid rgba(15,31,61,0.15); }
+    .nc-misc  { background: var(--cream2); color: var(--muted); border: 1px solid var(--border); }
+
+    .note-content {}
+
+    .note-title {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--navy);
+      margin-bottom: 0.4rem;
+      line-height: 1.4;
+      transition: color 0.15s;
+    }
+
+    .note-excerpt {
+      font-size: 13.5px;
+      color: var(--muted);
+      line-height: 1.75;
+      margin-bottom: 0.75rem;
+    }
+
+    .note-meta {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      font-family: var(--mono);
+      font-size: 10.5px;
+      color: var(--muted2);
+    }
+
+    .note-read { color: var(--coral); }
+
+    /* Note body — expandable */
+    .note-body {
+      display: none;
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border);
+      font-size: 14px;
+      color: var(--text2);
+      line-height: 1.85;
+    }
+
+    .note-body.open { display: block; }
+
+    .note-body p { margin-bottom: 0.9rem; }
+
+    .note-body code {
+      font-family: var(--mono);
+      font-size: 12px;
+      background: var(--cream2);
+      padding: 2px 6px;
+      border-radius: 2px;
+      border: 1px solid var(--border);
+      color: var(--navy);
+    }
+
+    .note-toggle {
+      font-family: var(--mono);
+      font-size: 10.5px;
+      color: var(--muted2);
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      transition: color 0.15s;
+    }
+    .note-toggle:hover { color: var(--coral); }
+
+    /* Sidebar */
+    .notes-sidebar { position: sticky; top: 84px; }
+
+    .nsb-section {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .nsb-title {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--coral);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    .nsb-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13px;
+      color: var(--text2);
+      padding: 5px 0;
+      border-bottom: 1px solid var(--border);
+      cursor: pointer;
+      transition: color 0.15s;
+    }
+    .nsb-item:last-child { border-bottom: none; }
+    .nsb-item:hover { color: var(--coral); }
+    .nsb-count {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--muted2);
+    }
+
+    .rss-link {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--muted);
+      padding: 8px 12px;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      transition: all 0.15s;
+      text-decoration: none;
+    }
+    .rss-link:hover { border-color: var(--coral); color: var(--coral); }
+
+    .nsb-note-stub {
+      padding: 0.75rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .nsb-note-stub:last-child { border-bottom: none; }
+    .nsb-stub-title {
+      font-size: 12.5px;
+      color: var(--text2);
+      margin-bottom: 2px;
+      line-height: 1.4;
+    }
+    .nsb-stub-date {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--muted2);
+    }
+
+    .coming-soon {
+      text-align: center;
+      padding: 3rem 2rem;
+      border: 1px dashed var(--border2);
+      border-radius: 6px;
+      margin-top: 2rem;
+    }
+    .cs-icon { font-size: 2rem; margin-bottom: 1rem; }
+    .cs-title { font-family: var(--serif); font-size: 1.1rem; color: var(--navy); margin-bottom: 0.5rem; }
+    .cs-sub { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+    @media (max-width: 860px) {
+      .notes-layout { grid-template-columns: 1fr; }
+      .notes-sidebar { position: static; }
+    }
+  </style>
+</head>
+<body>
+<div class="page-shell">
+
+<nav class="site-nav">
+  <a href="index.html" class="nav-brand">
+    <span class="nav-brand-name">Chethana Prasad K</span>
+    <span class="nav-brand-title">Research Engineer · AI Systems</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="research.html">Research</a></li>
+    <li><a href="experience.html">Experience</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="kathak.html">Kathak</a></li>
+    <li><a href="blog.html" class="active">Notes</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a href="contact.html" class="btn nav-cta">Get in Touch</a>
+</nav>
+
+<div class="page-hero">
+  <div class="container page-hero-inner">
+    <div class="page-hero-label">Research Notes</div>
+    <h1 class="page-hero-title">Thinking out loud<br>on ML, privacy &amp; AI systems.</h1>
+    <p class="page-hero-sub">Short-form notes, reading reflections, and technical observations from ongoing research. Not polished — intentionally so.</p>
+  </div>
+</div>
+
+<div class="container">
+  <div class="notes-page">
+    <div class="notes-layout">
+
+      <!-- Notes -->
+      <div>
+        <div class="note-list">
+
+          <div class="note-item">
+            <div class="note-date-col">
+              <div class="note-date">Apr<br>2026</div>
+              <span class="note-cat nc-priv">Privacy</span>
+            </div>
+            <div class="note-content">
+              <div class="note-title">Why "privacy by design" usually means privacy bolted on at the end</div>
+              <div class="note-excerpt">Most systems I've seen labeled "privacy-preserving" apply differential privacy as a post-hoc layer — a coat of noise over an already-trained model. That's not design. That's retrofit. Here's what actually building for privacy from the architecture stage looks like.</div>
+              <div class="note-meta">
+                <span>5 min read</span>
+                <button class="note-toggle" onclick="toggleNote(this)">+ read more</button>
+              </div>
+              <div class="note-body">
+                <p>The distinction matters because retrofitted privacy and designed privacy have fundamentally different threat models. When you add DP after training, you're protecting against post-hoc inference attacks on the final model. But the training process itself — gradient exchanges, intermediate checkpoints, the server's view of client updates — remains unprotected.</p>
+                <p>Real privacy-by-design starts at the data partitioning stage. It asks: what does the server <em>need</em> to learn? In federated settings, the answer is almost always "less than you're currently sending." Aggregation protocols like DP-EMAR that I've worked on try to enforce this at the weight level — repairing model weights without ever exposing raw gradients.</p>
+                <p>The engineering tradeoff is real: <code>ε-DP</code> bounds get worse as you apply them earlier and more aggressively. But accepting a slightly worse bound in exchange for a fundamentally better threat model is usually the right call for production systems.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="note-item">
+            <div class="note-date-col">
+              <div class="note-date">Mar<br>2026</div>
+              <span class="note-cat nc-ml">ML</span>
+            </div>
+            <div class="note-content">
+              <div class="note-title">Geometric coherence in federated GNNs — the problem nobody talks about</div>
+              <div class="note-excerpt">Federated learning for GNNs has a subtler problem than vanilla FL: graph topology is structural information, and averaging structural information from heterogeneous graphs is not just statistically tricky — it's geometrically incoherent.</div>
+              <div class="note-meta">
+                <span>7 min read</span>
+                <button class="note-toggle" onclick="toggleNote(this)">+ read more</button>
+              </div>
+              <div class="note-body">
+                <p>In standard federated learning, you average model weights. The implicit assumption is that the weight space is Euclidean — that a convex combination of two good models produces a model that's at least as good as either. This assumption is shaky even for MLPs, but for GNNs it breaks harder.</p>
+                <p>GNN weights learn relative to graph topology. A node embedding layer trained on a dense social graph is doing something structurally different from the same layer trained on a sparse citation graph, even if the weight matrices look numerically similar. Averaging them in weight space doesn't preserve the geometric structure either learned — it destroys it.</p>
+                <p>My work on this proposes coherence-aware aggregation: instead of averaging in weight space, we project to a shared geometric manifold first, aggregate there, then project back. The result is a global model that preserves local geometric structure far better than FedAvg baselines, especially under high client heterogeneity.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="note-item">
+            <div class="note-date-col">
+              <div class="note-date">Feb<br>2026</div>
+              <span class="note-cat nc-gov">Governance</span>
+            </div>
+            <div class="note-content">
+              <div class="note-title">DPDP vs GDPR: what the differences actually mean for AI system design</div>
+              <div class="note-excerpt">India's Digital Personal Data Protection Act and the EU's GDPR share a philosophical lineage but diverge in ways that have significant downstream consequences for how you architect consent management systems. A quick engineering-focused diff.</div>
+              <div class="note-meta">
+                <span>6 min read</span>
+                <button class="note-toggle" onclick="toggleNote(this)">+ read more</button>
+              </div>
+              <div class="note-body">
+                <p>The most operationally significant difference: GDPR assumes consent is granular and withdrawable at any point. DPDP shares this principle but introduces the concept of "deemed consent" for certain public interest purposes — which creates ambiguity for agentic AI systems operating over national data infrastructure.</p>
+                <p>For Anumati, the system I'm building at IIIT-B, this ambiguity is the design problem. When a citizen interacts with a government data system, there are often multiple layers of consent involved — some explicit, some implied, some delegated. An NLP-driven consent management layer needs to model all of these simultaneously and surface conflicts to human reviewers.</p>
+                <p>The engineering pattern that's emerging: treat consent as a <code>graph</code>, not a <code>boolean</code>. Each data access request traverses a consent graph where nodes are data categories and edges are delegation relationships. An access is permitted only if a valid path exists from the request origin to the data category under the applicable regulatory regime.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="note-item">
+            <div class="note-date-col">
+              <div class="note-date">Jan<br>2026</div>
+              <span class="note-cat nc-ml">ML</span>
+            </div>
+            <div class="note-content">
+              <div class="note-title">What NISQ quantum devices actually offer federated learning today (not in 10 years)</div>
+              <div class="note-excerpt">Quantum ML hype usually lives 10 years in the future. Here's a grounded take on what NISQ hardware can actually contribute to federated aggregation right now — and where the noise problem becomes an advantage rather than a limitation.</div>
+              <div class="note-meta">
+                <span>5 min read</span>
+                <button class="note-toggle" onclick="toggleNote(this)">+ read more</button>
+              </div>
+              <div class="note-body">
+                <p>The noise that makes NISQ devices frustrating for general quantum computation is actually useful in some federated learning contexts. Native quantum noise can serve as a physical randomization layer — a form of "hardware differential privacy" that's harder to remove than software-applied noise.</p>
+                <p>The catch: you need the aggregation protocol to be noise-resilient rather than noise-free, which means redesigning the aggregation step to extract signal from noisy quantum circuits reliably. That's the core of the NR-QFL work from WinTechCon 2025.</p>
+                <p>Current NISQ devices (20–100 qubits, gate fidelities around 99–99.5%) are useful for small aggregation tasks — think 10–20 client federated settings with shallow aggregation circuits. Not production-scale yet, but the trajectory is clear.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="note-item">
+            <div class="note-date-col">
+              <div class="note-date">Dec<br>2025</div>
+              <span class="note-cat nc-misc">Misc</span>
+            </div>
+            <div class="note-content">
+              <div class="note-title">On pursuing three research threads simultaneously (and when to stop)</div>
+              <div class="note-excerpt">At various points in 2025 I was simultaneously working on federated GNNs, quantum aggregation, cognitive architectures, data governance NLP, and a health equity DSS. Some reflections on what that's actually like and what I'd do differently.</div>
+              <div class="note-meta">
+                <span>4 min read</span>
+                <button class="note-toggle" onclick="toggleNote(this)">+ read more</button>
+              </div>
+              <div class="note-body">
+                <p>The honest answer is: it's sustainable until it isn't, and the line is thinner than I expected. The OMSCS program forces breadth in a way that pure research roles don't — you're not just reading adjacent literature, you're producing deliverables in it. That's good for generating ideas and terrible for going deep.</p>
+                <p>What actually worked: treating each thread as a 2-hour minimum context-switch. Anything less and you're just reading your own notes and not actually thinking. The morning is for the hardest thread, afternoon for communications and reviews, evening for lighter reading across threads.</p>
+                <p>What I'd do differently: commit to one publication per thread per year at most. I over-submitted in 2026 and it showed in review quality — some of those papers needed another month of work that I didn't give them because I was threading too many needles at once.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="coming-soon">
+          <div class="cs-icon">✦</div>
+          <div class="cs-title">More notes coming</div>
+          <div class="cs-sub">I write when I have something worth saying, not on a schedule.<br>Check back or subscribe below.</div>
+        </div>
+      </div>
+
+      <!-- Sidebar -->
+      <div class="notes-sidebar">
+
+        <div class="nsb-section">
+          <div class="nsb-title">Topics</div>
+          <div class="nsb-item"><span>Federated Learning</span><span class="nsb-count">3</span></div>
+          <div class="nsb-item"><span>Differential Privacy</span><span class="nsb-count">2</span></div>
+          <div class="nsb-item"><span>Data Governance</span><span class="nsb-count">2</span></div>
+          <div class="nsb-item"><span>Quantum ML</span><span class="nsb-count">1</span></div>
+          <div class="nsb-item"><span>Research Process</span><span class="nsb-count">1</span></div>
+          <div class="nsb-item"><span>NLP Systems</span><span class="nsb-count">1</span></div>
+        </div>
+
+        <div class="nsb-section">
+          <div class="nsb-title">Recent Papers I'm Reading</div>
+          <div class="nsb-note-stub">
+            <div class="nsb-stub-title">FedProx: Tackling Heterogeneity in Federated Networks</div>
+            <div class="nsb-stub-date">Li et al. · MLSys 2020</div>
+          </div>
+          <div class="nsb-note-stub">
+            <div class="nsb-stub-title">Flamingo: Multi-Round Single-Server Secure Aggregation</div>
+            <div class="nsb-stub-date">Ma et al. · S&amp;P 2023</div>
+          </div>
+          <div class="nsb-note-stub">
+            <div class="nsb-stub-title">Graph Federated Learning with Hidden Heterogeneity</div>
+            <div class="nsb-stub-date">Yao et al. · 2024</div>
+          </div>
+          <div class="nsb-note-stub">
+            <div class="nsb-stub-title">Consent Receipts &amp; Consent Management Platforms</div>
+            <div class="nsb-stub-date">Kantara Initiative · 2022</div>
+          </div>
+        </div>
+
+        <div class="nsb-section">
+          <div class="nsb-title">Stay Updated</div>
+          <p style="font-size:12.5px; color:var(--muted); margin-bottom:1rem; line-height:1.6;">Occasional notes on ML research and AI systems — no schedule, no newsletter spam.</p>
+          <a href="mailto:chethana1999@gmail.com?subject=Subscribe to notes" class="rss-link">
+            ✉ Email me to subscribe
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-left">
+    <div class="footer-name">Chethana Prasad K</div>
+    <div class="footer-sub">Research Engineer · Bengaluru, India · 2026</div>
+    <div class="footer-links-row">
+      <a href="mailto:chethana1999@gmail.com">Email</a>
+      <a href="https://www.linkedin.com/in/chethana-prasad-k-42a618213" target="_blank">LinkedIn</a>
+      <a href="https://scholar.google.com/citations?user=dVHXlxYAAAAJ&hl=en" target="_blank">Google Scholar</a>
+    </div>
+  </div>
+  <div class="footer-right">
+    <span class="footer-coral-dot"></span>Bengaluru, KA<br>
+    IIIT-B · Georgia Tech<br>
+    © 2026 Chethana Prasad K
+  </div>
+</footer>
+
+</div>
+<script>
+function toggleNote(btn) {
+  const body = btn.closest('.note-content').querySelector('.note-body');
+  const open = body.classList.toggle('open');
+  btn.textContent = open ? '− collapse' : '+ read more';
+}
+</script>
+</body>
+</html>

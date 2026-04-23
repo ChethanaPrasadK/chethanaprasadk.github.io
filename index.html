@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chethana Prasad K — Research Engineer</title>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    /* ---- Hero ---- */
+    .hero {
+      min-height: calc(100vh - var(--nav-h));
+      display: grid;
+      grid-template-columns: 1fr 440px;
+      gap: 4rem;
+      align-items: center;
+      padding: 5rem 3rem 5rem;
+      max-width: 1060px;
+      margin: 0 auto;
+    }
+    .hero-eyebrow {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--coral);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      display: flex; align-items: center; gap: 0.75rem;
+    }
+    .hero-eyebrow::before { content: ''; width: 28px; height: 1px; background: var(--coral); }
+    h1.hero-name {
+      font-family: var(--serif);
+      font-size: clamp(2.8rem, 5vw, 4.2rem);
+      font-weight: 500;
+      line-height: 1.08;
+      color: var(--navy);
+      margin-bottom: 0.3rem;
+      letter-spacing: -0.01em;
+    }
+    .hero-role {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 1.15rem;
+      color: var(--muted);
+      margin-bottom: 2rem;
+    }
+    .hero-bio {
+      font-size: 15px;
+      color: var(--text2);
+      line-height: 1.8;
+      max-width: 540px;
+      margin-bottom: 2.5rem;
+    }
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      overflow: hidden;
+      margin-bottom: 2.5rem;
+    }
+    .hero-stat {
+      background: var(--cream2);
+      padding: 1rem 1.25rem;
+      text-align: center;
+    }
+    .hero-stat-num {
+      font-family: var(--serif);
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: var(--navy);
+      line-height: 1;
+      margin-bottom: 3px;
+    }
+    .hero-stat-label {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+    }
+    .hero-btns { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+
+    /* Right — profile card */
+    .hero-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 12px 40px rgba(15,31,61,0.1);
+    }
+    .hero-card-top {
+      background: var(--navy);
+      padding: 2.25rem 2rem 1.5rem;
+      position: relative;
+    }
+    .hero-card-img-wrap {
+      width: 90px; height: 90px;
+      border-radius: 50%;
+      border: 3px solid rgba(255,255,255,0.2);
+      overflow: hidden;
+      margin-bottom: 1rem;
+      background: var(--navy2);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .hero-card-initials {
+      font-family: var(--serif);
+      font-size: 2rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.6);
+    }
+    .hero-card-name {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: #fff;
+      margin-bottom: 3px;
+    }
+    .hero-card-role {
+      font-family: var(--mono);
+      font-size: 10.5px;
+      color: rgba(255,255,255,0.4);
+      letter-spacing: 0.06em;
+    }
+    .status-dot {
+      display: inline-flex; align-items: center; gap: 6px;
+      margin-top: 0.75rem;
+      font-family: var(--mono); font-size: 10px;
+      color: rgba(255,255,255,0.5);
+    }
+    .status-dot::before {
+      content: '';
+      width: 6px; height: 6px;
+      background: #4ade80;
+      border-radius: 50%;
+      animation: blink 2s ease-in-out infinite;
+    }
+    @keyframes blink { 0%,100%{opacity:1;} 50%{opacity:0.3;} }
+
+    .hero-card-body { padding: 1.5rem 2rem; }
+    .hcb-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      padding: 0.6rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 13px;
+    }
+    .hcb-row:last-child { border-bottom: none; }
+    .hcb-label {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--muted2);
+      letter-spacing: 0.06em;
+      min-width: 72px;
+      padding-top: 2px;
+    }
+    .hcb-val { color: var(--text2); line-height: 1.5; }
+    .hcb-val a { color: var(--coral); }
+    .hcb-val a:hover { text-decoration: underline; }
+
+    /* Recent highlights strip */
+    .highlights {
+      padding: 4rem 0;
+      border-top: 1px solid var(--border);
+    }
+    .highlights-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    .highlight-block {
+      background: var(--cream);
+      padding: 2rem;
+      transition: background 0.2s;
+    }
+    .highlight-block:hover { background: #fff; }
+    .hb-tag {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--coral);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+    .hb-title {
+      font-family: var(--serif);
+      font-size: 14.5px;
+      font-weight: 500;
+      color: var(--navy);
+      margin-bottom: 0.4rem;
+      line-height: 1.4;
+    }
+    .hb-sub { font-size: 12.5px; color: var(--muted); line-height: 1.5; }
+
+    /* Research areas */
+    .areas {
+      padding: 4rem 0;
+    }
+    .areas-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+    }
+    .area-card {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 1.5rem;
+      background: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+    .area-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+    }
+    .area-card.c1::before { background: var(--coral); }
+    .area-card.c2::before { background: var(--teal); }
+    .area-card.c3::before { background: var(--saffron); }
+    .area-card.c4::before { background: var(--navy3); }
+    .area-icon { font-size: 1.5rem; margin-bottom: 0.75rem; }
+    .area-name {
+      font-family: var(--serif);
+      font-size: 14.5px;
+      font-weight: 500;
+      color: var(--navy);
+      margin-bottom: 0.4rem;
+    }
+    .area-desc { font-size: 12.5px; color: var(--muted); line-height: 1.6; }
+
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; padding: 3rem 1.5rem; }
+      .hero-card { max-width: 400px; }
+    }
+  </style>
+</head>
+<body>
+<div class="page-shell">
+
+<!-- Nav -->
+<nav class="site-nav">
+  <a href="index.html" class="nav-brand">
+    <span class="nav-brand-name">Chethana Prasad K</span>
+    <span class="nav-brand-title">Research Engineer · AI Systems</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="research.html">Research</a></li>
+    <li><a href="experience.html">Experience</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="kathak.html">Kathak</a></li>
+    <li><a href="blog.html">Notes</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a href="contact.html" class="btn nav-cta">Get in Touch</a>
+</nav>
+
+<!-- Hero -->
+<section style="border-bottom: 1px solid var(--border);">
+  <div class="hero">
+    <div>
+      <div class="hero-eyebrow">Pre-Doctoral Researcher</div>
+      <h1 class="hero-name">Chethana<br>Prasad K</h1>
+      <p class="hero-role">Federated ML · Trustworthy AI · Data Governance</p>
+      <p class="hero-bio">
+        I design and build privacy-preserving machine learning systems — from geometric aggregation in federated GNNs to quantum-resilient protocols and consent management frameworks for national-scale data ecosystems.
+      </p>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="hero-stat-num">8</div>
+          <div class="hero-stat-label">Publications</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">3</div>
+          <div class="hero-stat-label">Institutions</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">5+</div>
+          <div class="hero-stat-label">Years Research</div>
+        </div>
+      </div>
+      <div class="hero-btns">
+        <a href="research.html" class="btn btn-coral">View Research →</a>
+        <a href="https://scholar.google.com/citations?user=dVHXlxYAAAAJ&hl=en" target="_blank" class="btn btn-navy">Google Scholar</a>
+        <a href="about.html" class="btn btn-ghost">About Me</a>
+      </div>
+    </div>
+
+    <div>
+      <div class="hero-card">
+        <div class="hero-card-top">
+          <div class="hero-card-img-wrap">
+            <span class="hero-card-initials">CPK</span>
+          </div>
+          <div class="hero-card-name">Chethana Prasad K</div>
+          <div class="hero-card-role">IIIT-B · Georgia Tech · IISc</div>
+          <div class="status-dot">Open to PhD positions</div>
+        </div>
+        <div class="hero-card-body">
+          <div class="hcb-row">
+            <span class="hcb-label">Current</span>
+            <span class="hcb-val">Pre-Doctoral Researcher, IIIT-B WSL Lab</span>
+          </div>
+          <div class="hcb-row">
+            <span class="hcb-label">MSCS</span>
+            <span class="hcb-val">Georgia Institute of Technology (AI + HCI)</span>
+          </div>
+          <div class="hcb-row">
+            <span class="hcb-label">M.Tech</span>
+            <span class="hcb-val">PES University — by Research (CS&E)</span>
+          </div>
+          <div class="hcb-row">
+            <span class="hcb-label">Focus</span>
+            <span class="hcb-val">Federated ML, Differential Privacy, NLP-driven Governance</span>
+          </div>
+          <div class="hcb-row">
+            <span class="hcb-label">Location</span>
+            <span class="hcb-val">Bengaluru, Karnataka, India</span>
+          </div>
+          <div class="hcb-row">
+            <span class="hcb-label">Email</span>
+            <span class="hcb-val"><a href="mailto:chethana1999@gmail.com">chethana1999@gmail.com</a></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Research areas -->
+<section class="areas">
+  <div class="container">
+    <div class="sec-header">
+      <span class="sec-num">01</span>
+      <h2 class="sec-title">Research Areas</h2>
+      <div class="sec-line"></div>
+    </div>
+    <div class="areas-grid">
+      <div class="area-card c1">
+        <div class="area-icon">&#x1F9E0;</div>
+        <div class="area-name">Federated Machine Learning</div>
+        <div class="area-desc">Geometric coherence, heterogeneous aggregation, GNN federation, and cluster-aware distributed training.</div>
+      </div>
+      <div class="area-card c2">
+        <div class="area-icon">&#x1F512;</div>
+        <div class="area-name">Privacy-Preserving AI</div>
+        <div class="area-desc">Differential privacy, model weight repair, and secure aggregation frameworks for IoT and edge systems.</div>
+      </div>
+      <div class="area-card c3">
+        <div class="area-icon">&#x269B;&#xFE0F;</div>
+        <div class="area-name">Quantum ML</div>
+        <div class="area-desc">Noise-resilient quantum aggregation on NISQ devices for federated ADAS learning applications.</div>
+      </div>
+      <div class="area-card c4">
+        <div class="area-icon">&#x1F4DC;</div>
+        <div class="area-name">Data Governance</div>
+        <div class="area-desc">NLP-driven consent management, DPDP/GDPR compliance, and agentic AI for national data ecosystems.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Recent highlights -->
+<section class="highlights" style="padding-top:0;">
+  <div class="container">
+    <div class="sec-header">
+      <span class="sec-num">02</span>
+      <h2 class="sec-title">Recent Highlights</h2>
+      <div class="sec-line"></div>
+    </div>
+    <div class="highlights-grid">
+      <div class="highlight-block">
+        <div class="hb-tag">2026 · arXiv</div>
+        <div class="hb-title">Geometric Coherence of Global Aggregation in Federated GNN</div>
+        <div class="hb-sub">Submitted to IJAI — arXiv:2602.15510</div>
+      </div>
+      <div class="highlight-block">
+        <div class="hb-tag">2026 · IEEE COMSNETS</div>
+        <div class="hb-title">DP-EMAR: Differentially Private Autonomous Model Weight Repair</div>
+        <div class="hb-sub">For Federated IoT Systems</div>
+      </div>
+      <div class="highlight-block">
+        <div class="hb-tag">2025 · WinTechCon</div>
+        <div class="hb-title">Noise-Resilient Quantum Aggregation on NISQ</div>
+        <div class="hb-sub">Federated ADAS Learning — Accepted</div>
+      </div>
+      <div class="highlight-block">
+        <div class="hb-tag">Sep 2025 · IIIT-B</div>
+        <div class="hb-title">Building Anumati — National Consent Management System</div>
+        <div class="hb-sub">Collaborating with CDAC, IISc-CDPG, IUDX under MoHUA &amp; MeitY</div>
+      </div>
+    </div>
+    <div style="margin-top:2rem; text-align:right;">
+      <a href="research.html" class="btn btn-ghost">All Publications →</a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="site-footer">
+  <div class="footer-left">
+    <div class="footer-name">Chethana Prasad K</div>
+    <div class="footer-sub">Research Engineer · Bengaluru, India · 2026</div>
+    <div class="footer-links-row">
+      <a href="mailto:chethana1999@gmail.com">Email</a>
+      <a href="https://www.linkedin.com/in/chethana-prasad-k-42a618213" target="_blank">LinkedIn</a>
+      <a href="https://scholar.google.com/citations?user=dVHXlxYAAAAJ&hl=en" target="_blank">Google Scholar</a>
+      <a href="https://chethanaprasadk.github.io/" target="_blank">GitHub</a>
+    </div>
+  </div>
+  <div class="footer-right">
+    <span class="footer-coral-dot"></span>Bengaluru, KA<br>
+    IIIT-B · Georgia Tech<br>
+    © 2026 Chethana Prasad K
+  </div>
+</footer>
+
+</div><!-- /page-shell -->
+</body>
+</html>
