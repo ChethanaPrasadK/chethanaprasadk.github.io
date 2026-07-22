@@ -12,11 +12,12 @@
       display: grid;
       grid-template-columns: 1fr 440px;
       gap: 4rem;
-      align-items: center;
+      align-items: start;
       padding: 5rem 3rem 5rem;
       max-width: 1060px;
       margin: 0 auto;
     }
+    .hero-card-sticky { position: sticky; top: 110px; }
     .hero-eyebrow {
       font-family: var(--mono);
       font-size: 11px;
@@ -33,23 +34,23 @@
       font-weight: 500;
       line-height: 1.08;
       color: var(--navy);
-      margin-bottom: 0.3rem;
+      margin-bottom: 1.25rem;
       letter-spacing: -0.01em;
     }
-    .hero-role {
+    .hero-greeting {
       font-family: var(--serif);
-      font-style: italic;
-      font-size: 1.15rem;
-      color: var(--muted);
-      margin-bottom: 2rem;
+      font-size: 1.2rem;
+      color: var(--navy);
+      margin-bottom: 1.25rem;
     }
     .hero-bio {
       font-size: 15px;
       color: var(--text2);
       line-height: 1.8;
-      max-width: 540px;
-      margin-bottom: 2.5rem;
+      max-width: 560px;
+      margin-bottom: 1.15rem;
     }
+    .hero-bio:last-of-type { margin-bottom: 2.5rem; }
     .hero-stats {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -239,6 +240,7 @@
     @media (max-width: 900px) {
       .hero { grid-template-columns: 1fr; padding: 3rem 1.5rem; }
       .hero-card { max-width: 400px; }
+      .hero-card-sticky { position: static; }
     }
   </style>
 </head>
@@ -268,46 +270,30 @@
 <section style="border-bottom: 1px solid var(--border);">
   <div class="hero">
     <div>
-      <div class="hero-eyebrow"> Researcher</div>
+      <div class="hero-eyebrow">Pre-Doctoral Researcher</div>
       <h1 class="hero-name">Chethana<br>Prasad K</h1>
-      <p class="hero-role">Federated Learning · Privacy · Data Governance</p>
-      <p class="hero-bio">
-       Hey, I'm Chethana 👋
-
-I'm someone who genuinely enjoys building things.
-
-Give me a challenging coding problem, an interesting research question, a new HCI idea, or an AI system that needs designing, and I'll happily disappear for hours trying to make it better.
-
-What fascinates me most is the space where people and intelligent systems meet. I love exploring how AI can be more trustworthy, more interactive, and more useful—not just more accurate. Whether I'm writing code, designing user experiences, building machine learning models, or experimenting with distributed AI systems, I'm always asking one question:
-
-"How can we make this smarter, simpler, and more human?"
-
-Research, for me, isn't just about publishing papers—it's about chasing ideas that keep me awake at night. Coding isn't just a skill—it's my favorite way of thinking. I enjoy turning abstract concepts into working systems, breaking things apart to understand them, and then rebuilding them better.
-
-Over the years, I've explored everything from Human-Computer Interaction and AI systems to federated learning, graph neural networks, privacy-preserving machine learning, and agentic AI. But I don't like being boxed into one domain. The most exciting ideas usually happen at the intersection of disciplines.
-
-Outside of work, you'll probably find me sketching product ideas, reading research papers that have nothing to do with my current project, or convincing myself that "one small code change" definitely won't take the next four hours.
-
-I'm always learning, always building, and always looking for the next interesting problem to solve.
-
-Welcome to my little corner of the internet.
-      </p>
-      <div class="quick-links">
-  <a href="projects.html" class="quick-link">
-    <span class="quick-title">Projects</span>
-    <span class="quick-desc">Things I've built</span>
-  </a>
-
-  <a href="research.html" class="quick-link">
-    <span class="quick-title">Publications</span>
-    <span class="quick-desc">Research & Preprints</span>
-  </a>
-
-  <a href="Chethana_Prasad_CV.pdf" class="quick-link">
-    <span class="quick-title">Curriculum Vitae</span>
-    <span class="quick-desc">Experience & Education</span>
-  </a>
-</div>
+      <p class="hero-greeting">Hey, I'm Chethana 👋</p>
+      <p class="hero-bio">I'm someone who genuinely enjoys building things.</p>
+      <p class="hero-bio">Give me a challenging coding problem, an interesting research question, a new HCI idea, or an AI system that needs designing, and I'll happily disappear for hours trying to make it better.</p>
+      <p class="hero-bio">What fascinates me most is the space where people and intelligent systems meet. I love exploring how AI can be more trustworthy, more interactive, and more useful — not just more accurate. Whether I'm writing code, designing user experiences, building machine learning models, or experimenting with distributed AI systems, I'm always asking one question: <em>"How can we make this smarter, simpler, and more human?"</em></p>
+      <p class="hero-bio">Research, for me, isn't just about publishing papers — it's about chasing ideas that keep me awake at night. Coding isn't just a skill — it's my favorite way of thinking. I enjoy turning abstract concepts into working systems, breaking things apart to understand them, and then rebuilding them better.</p>
+      <p class="hero-bio">Over the years, I've explored everything from Human-Computer Interaction and AI systems to federated learning, graph neural networks, privacy-preserving machine learning, and agentic AI. But I don't like being boxed into one domain. The most exciting ideas usually happen at the intersection of disciplines.</p>
+      <p class="hero-bio">Outside of work, you'll probably find me sketching product ideas, reading research papers that have nothing to do with my current project, or convincing myself that "one small code change" definitely won't take the next four hours.</p>
+      <p class="hero-bio">I'm always learning, always building, and always looking for the next interesting problem to solve.</p>
+      <p class="hero-bio">Welcome to my little corner of the internet.</p>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="hero-stat-num">8</div>
+          <div class="hero-stat-label">Papers &amp; Preprints</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">3</div>
+          <div class="hero-stat-label">Institutions</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">~3</div>
+          <div class="hero-stat-label">Years in Research</div>
+        </div>
       </div>
       <div class="hero-btns">
         <a href="research.html" class="btn btn-coral">Publications →</a>
@@ -316,7 +302,7 @@ Welcome to my little corner of the internet.
       </div>
     </div>
 
-    <div>
+    <div class="hero-card-sticky">
       <div class="hero-card">
         <div class="hero-card-top">
           <img class="hero-card-photo" src="assets/chethana-portrait.jpg" alt="Chethana Prasad K"/>
