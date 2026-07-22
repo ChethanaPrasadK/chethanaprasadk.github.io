@@ -116,7 +116,7 @@
       position: relative;
     }
     .feature-card::before {
-      content: 'FEATURED';
+      content: 'IN PROGRESS';
       position: absolute;
       top: 1.25rem; right: 1.25rem;
       font-family: var(--mono);
@@ -179,8 +179,8 @@
 <div class="page-hero">
   <div class="container page-hero-inner">
     <div class="page-hero-label">Projects</div>
-    <h1 class="page-hero-title">Research that ships,<br>not just publishes.</h1>
-    <p class="page-hero-sub">Prototypes, deployed tools, and course projects from IIIT-B, Georgia Tech, and beyond.</p>
+    <h1 class="page-hero-title">Course projects and<br>working prototypes.</h1>
+    <p class="page-hero-sub">Mostly graduate coursework at Georgia Tech, plus one ongoing institutional project. None of these are production products — treat them as what they are: student and early-research work.</p>
   </div>
 </div>
 
@@ -200,12 +200,11 @@
       <!-- Featured -->
       <div class="feature-card" data-cat="governance ml">
         <div>
-          <div class="fc-label">IIIT-B · Active Project</div>
-          <div class="fc-title">Anumati — National Consent Management System</div>
-          <div class="fc-desc">A large-scale, NLP-driven consent management platform for India's digital public data ecosystem. Addresses DPDP and GDPR compliance through agentic AI workflows. Built in collaboration with IISc-CDPG, CDAC, and IUDX under MoHUA and MeitY initiatives.</div>
+          <div class="fc-label">IIIT-B · Ongoing</div>
+          <div class="fc-title">Anumati — consent management prototype</div>
+          <div class="fc-desc">An NLP-assisted consent-management prototype for public data infrastructure, built with DPDP and GDPR requirements in mind. It's a multi-partner effort with IISc-CDPG, CDAC, and IUDX under MoHUA and MeitY — I'm one of several contributors, working on specific components rather than the whole system.</div>
           <div class="fc-meta">
             <span class="fc-badge">DPDP · GDPR</span>
-            <span class="fc-badge">Agentic AI</span>
             <span class="fc-badge">NLP</span>
             <span class="fc-badge">IISc · CDAC · IUDX</span>
           </div>
@@ -218,17 +217,16 @@
         <div class="proj-body">
           <div class="proj-course">CS 6750 · HCI — Georgia Tech</div>
           <div class="proj-name">FinGraphX</div>
-          <div class="proj-desc">ML-assisted trading and portfolio analytics prototype with explainable AI components. Includes commodity purchase tracking dashboards with iterative usability evaluation and integrated LLM assistance.</div>
+          <div class="proj-desc">Course prototype for a portfolio-analytics dashboard with a basic explainability layer and LLM assistant, built and refined across a few rounds of usability testing.</div>
           <div class="proj-tags">
             <span class="tag coral">ML</span>
             <span class="tag">HCI</span>
             <span class="tag">Dashboard</span>
-            <span class="tag">LLM</span>
           </div>
         </div>
         <div class="proj-footer">
           <span class="proj-year">Spring 2025</span>
-          <span class="proj-link">Georgia Tech →</span>
+          <span class="proj-link" style="color:var(--muted2);">Coursework · no public demo</span>
         </div>
       </div>
 
@@ -237,16 +235,15 @@
         <div class="proj-body">
           <div class="proj-course">CS 6435 · Digital Health Equity — Georgia Tech</div>
           <div class="proj-name">RippleBoards</div>
-          <div class="proj-desc">Interactive decision-support system simulating how social determinant interventions (housing, nutrition, employment) ripple through health outcomes to reduce premature mortality in under-resourced US communities.</div>
+          <div class="proj-desc">Team project (4 of us) — a simulation exploring how interventions like housing, nutrition, and employment support might affect community health outcomes. A policy discussion tool, not a validated model.</div>
           <div class="proj-tags">
             <span class="tag teal">Health Equity</span>
             <span class="tag">Simulation</span>
-            <span class="tag">Policy</span>
           </div>
         </div>
         <div class="proj-footer">
           <span class="proj-year">Spring 2026</span>
-          <span class="proj-link">In Submission →</span>
+          <span class="proj-link" style="color:var(--muted2);">Course paper in submission</span>
         </div>
       </div>
 
@@ -254,17 +251,16 @@
         <div class="proj-top pt-navy"></div>
         <div class="proj-body">
           <div class="proj-course">CS 6795 · Cognitive Science — Georgia Tech</div>
-          <div class="proj-name">Neuro-Symbolic Cognitive Architecture</div>
-          <div class="proj-desc">Research paper and working prototype on neuro-symbolic cognitive architectures, analyzing representation, reasoning, and symbolic–connectionist integration for robust AI reasoning systems.</div>
+          <div class="proj-name">Visual Categorization: Minds vs. Models</div>
+          <div class="proj-desc">Course paper comparing how humans vs. ML models categorize images, with a small neuro-symbolic prototype sketching one way to narrow the gap.</div>
           <div class="proj-tags">
             <span class="tag navy">Cognitive AI</span>
             <span class="tag">Neuro-Symbolic</span>
-            <span class="tag">Reasoning</span>
           </div>
         </div>
         <div class="proj-footer">
           <span class="proj-year">2025</span>
-          <span class="proj-link">arXiv:2512.09340 →</span>
+          <a class="proj-link" href="https://arxiv.org/abs/2512.09340" target="_blank">arXiv:2512.09340 →</a>
         </div>
       </div>
 
@@ -272,17 +268,16 @@
         <div class="proj-top pt-saf"></div>
         <div class="proj-body">
           <div class="proj-course">CS 7637 · Knowledge-Based AI — Georgia Tech</div>
-          <div class="proj-name">ARC-AGI Reasoning Agents</div>
-          <div class="proj-desc">Semester-long development of autonomous reasoning agents for ARC-AGI and game AI problem sets. Implemented structured knowledge inference systems capable of general problem-solving across visual and symbolic domains.</div>
+          <div class="proj-name">Reasoning Agents for ARC &amp; Game AI</div>
+          <div class="proj-desc">Semester-long coursework building rule-based reasoning agents for ARC-style puzzle sets and simple game-AI problems — structured inference, not general intelligence.</div>
           <div class="proj-tags">
-            <span class="tag coral">AGI</span>
-            <span class="tag">Knowledge Graphs</span>
+            <span class="tag coral">Knowledge-Based AI</span>
             <span class="tag">Reasoning</span>
           </div>
         </div>
         <div class="proj-footer">
           <span class="proj-year">2025</span>
-          <span class="proj-link">Georgia Tech →</span>
+          <span class="proj-link" style="color:var(--muted2);">Coursework · no public demo</span>
         </div>
       </div>
 
@@ -291,16 +286,15 @@
         <div class="proj-body">
           <div class="proj-course">CS 6603 · AI Ethics &amp; Society — Georgia Tech</div>
           <div class="proj-name">Data Forensics &amp; Bias Analysis</div>
-          <div class="proj-desc">ML-driven data forensics project evaluating bias and interpretability in visual data systems. Extensive study on data visualization integrity and analytics methodology for AI fairness assessment.</div>
+          <div class="proj-desc">Course project auditing a visual dataset for bias and interpretability issues — mostly a methodology exercise in how to evaluate fairness, not a novel technique.</div>
           <div class="proj-tags">
             <span class="tag coral">AI Ethics</span>
             <span class="tag">Bias Detection</span>
-            <span class="tag">Interpretability</span>
           </div>
         </div>
         <div class="proj-footer">
           <span class="proj-year">2025</span>
-          <span class="proj-link">Georgia Tech →</span>
+          <span class="proj-link" style="color:var(--muted2);">Coursework · no public demo</span>
         </div>
       </div>
 
@@ -309,7 +303,7 @@
         <div class="proj-body">
           <div class="proj-course">CS 6300 · Software Dev Process — Georgia Tech</div>
           <div class="proj-name">Full-Stack ML Product</div>
-          <div class="proj-desc">Engineered and delivered a full-stack software product following structured modeling and CI/CD workflows. Implemented advanced Java testing and debugging frameworks with rigorous QA coverage.</div>
+          <div class="proj-desc">Team coursework building a small full-stack app with a CI/CD pipeline and a Java test suite, following a standard software-development-process curriculum — a practice run at team engineering process, not a shipped product.</div>
           <div class="proj-tags">
             <span class="tag teal">Java</span>
             <span class="tag">CI/CD</span>
@@ -319,7 +313,7 @@
         </div>
         <div class="proj-footer">
           <span class="proj-year">2025</span>
-          <span class="proj-link">Georgia Tech →</span>
+          <span class="proj-link" style="color:var(--muted2);">Coursework · no public demo</span>
         </div>
       </div>
 
@@ -328,7 +322,7 @@
         <div class="proj-body">
           <div class="proj-course">CS 6750 · HCI — Georgia Tech</div>
           <div class="proj-name">Order Tracking Dashboard</div>
-          <div class="proj-desc">Commodity purchase tracking dashboard built with iterative usability evaluation. Designed for real-world deployment with HCI best practices, accessibility considerations, and user testing across multiple design iterations.</div>
+          <div class="proj-desc">Coursework redesigning a commodity-purchase tracking dashboard, run through a few rounds of usability testing with a small group of users. A UX exercise, not a deployed product.</div>
           <div class="proj-tags">
             <span class="tag navy">UX Design</span>
             <span class="tag">Usability</span>
@@ -337,7 +331,7 @@
         </div>
         <div class="proj-footer">
           <span class="proj-year">Apr 2025</span>
-          <span class="proj-link">Published at GT →</span>
+          <span class="proj-link" style="color:var(--muted2);">Coursework · no public demo</span>
         </div>
       </div>
 
