@@ -90,28 +90,32 @@
       box-shadow: 0 12px 40px rgba(15,31,61,0.1);
     }
     .hero-card-top {
-      background: var(--navy);
-      padding: 2.25rem 2rem 1.5rem;
       position: relative;
-    }
-    .hero-card-img-wrap {
-      width: 90px; height: 90px;
-      border-radius: 50%;
-      border: 3px solid rgba(255,255,255,0.2);
+      aspect-ratio: 4 / 5;
       overflow: hidden;
-      margin-bottom: 1rem;
-      background: var(--navy2);
-      display: flex; align-items: center; justify-content: center;
+      background: var(--navy);
     }
-    .hero-card-initials {
-      font-family: var(--serif);
-      font-size: 2rem;
-      font-weight: 600;
-      color: rgba(255,255,255,0.6);
+    .hero-card-photo {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center 15%;
+      display: block;
+    }
+    .hero-card-top::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(15,31,61,0.95) 0%, rgba(15,31,61,0.6) 32%, rgba(15,31,61,0.05) 62%, rgba(15,31,61,0) 75%);
+      pointer-events: none;
+    }
+    .hero-card-caption {
+      position: absolute;
+      left: 0; right: 0; bottom: 0;
+      padding: 1.5rem 2rem 1.25rem;
+      z-index: 1;
     }
     .hero-card-name {
       font-family: var(--serif);
-      font-size: 1.1rem;
+      font-size: 1.3rem;
       font-weight: 500;
       color: #fff;
       margin-bottom: 3px;
@@ -119,23 +123,21 @@
     .hero-card-role {
       font-family: var(--mono);
       font-size: 10.5px;
-      color: rgba(255,255,255,0.4);
+      color: rgba(255,255,255,0.55);
       letter-spacing: 0.06em;
     }
     .status-dot {
       display: inline-flex; align-items: center; gap: 6px;
       margin-top: 0.75rem;
       font-family: var(--mono); font-size: 10px;
-      color: rgba(255,255,255,0.5);
+      color: rgba(255,255,255,0.6);
     }
     .status-dot::before {
       content: '';
       width: 6px; height: 6px;
       background: #4ade80;
       border-radius: 50%;
-      animation: blink 2s ease-in-out infinite;
     }
-    @keyframes blink { 0%,100%{opacity:1;} 50%{opacity:0.3;} }
 
     .hero-card-body { padding: 1.5rem 2rem; }
     .hcb-row {
@@ -270,9 +272,22 @@
       <h1 class="hero-name">Chethana<br>Prasad K</h1>
       <p class="hero-role">Federated Learning · Privacy · Data Governance</p>
       <p class="hero-bio">
-        I'm a researcher working on federated learning and data governance, currently building a consent-management system for public data infrastructure. Still early in this path — learning by building, publishing, and getting things wrong in useful ways.
+        I'm a pre-doctoral researcher working on federated learning and differential privacy, currently building a consent-management system for public data infrastructure. Still early in this path — learning by building, publishing, and getting things wrong in useful ways.
       </p>
-     
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="hero-stat-num">8</div>
+          <div class="hero-stat-label">Papers &amp; Preprints</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">3</div>
+          <div class="hero-stat-label">Institutions</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">~3</div>
+          <div class="hero-stat-label">Years in Research</div>
+        </div>
+      </div>
       <div class="hero-btns">
         <a href="research.html" class="btn btn-coral">Publications →</a>
         <a href="https://scholar.google.com/citations?user=dVHXlxYAAAAJ&hl=en" target="_blank" class="btn btn-navy">Google Scholar</a>
@@ -283,12 +298,12 @@
     <div>
       <div class="hero-card">
         <div class="hero-card-top">
-          <div class="hero-card-img-wrap">
-            <img class="avatar-photo" src="assets/chethana.jpg" alt="Chethana Prasad K"/>
+          <img class="hero-card-photo" src="assets/chethana-portrait.jpg" alt="Chethana Prasad K"/>
+          <div class="hero-card-caption">
+            <div class="hero-card-name">Chethana Prasad K</div>
+            <div class="hero-card-role">IIIT-B · Georgia Tech · IISc</div>
+            <div class="status-dot">Open to PhD positions</div>
           </div>
-          <div class="hero-card-name">Chethana Prasad K</div>
-          <div class="hero-card-role">IIIT-B · Georgia Tech · IISc</div>
-          <div style="margin-top:0.75rem; font-family: var(--mono); font-size: 10px; color: rgba(255,255,255,0.45); letter-spacing:0.04em;">Open to PhD positions</div>
         </div>
         <div class="hero-card-body">
           <div class="hcb-row">

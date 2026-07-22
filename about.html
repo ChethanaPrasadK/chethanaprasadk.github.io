@@ -21,30 +21,39 @@
       overflow: hidden;
     }
     .sidebar-top {
+      position: relative;
+      aspect-ratio: 4 / 5;
+      overflow: hidden;
       background: var(--navy);
-      padding: 1.75rem 1.5rem;
     }
-    .sidebar-initials {
-      width: 64px; height: 64px;
-      border-radius: 50%;
-      background: var(--navy2);
-      border: 2px solid rgba(255,255,255,0.2);
-      display: flex; align-items: center; justify-content: center;
-      font-family: var(--serif);
-      font-size: 1.4rem;
-      color: rgba(255,255,255,0.6);
-      margin-bottom: 1rem;
+    .sidebar-photo {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center 15%;
+      display: block;
+    }
+    .sidebar-top::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(15,31,61,0.95) 0%, rgba(15,31,61,0.6) 32%, rgba(15,31,61,0.05) 62%, rgba(15,31,61,0) 75%);
+      pointer-events: none;
+    }
+    .sidebar-caption {
+      position: absolute;
+      left: 0; right: 0; bottom: 0;
+      padding: 1.25rem 1.5rem 1rem;
+      z-index: 1;
     }
     .sidebar-name {
       font-family: var(--serif);
-      font-size: 1rem;
+      font-size: 1.15rem;
       color: #fff;
       margin-bottom: 3px;
     }
     .sidebar-role {
       font-family: var(--mono);
       font-size: 10px;
-      color: rgba(255,255,255,0.35);
+      color: rgba(255,255,255,0.5);
       letter-spacing: 0.06em;
     }
     .sidebar-body { padding: 1.25rem 1.5rem; }
@@ -108,23 +117,32 @@
     .prose strong { color: var(--navy); font-weight: 600; }
 
     /* Education table */
-    .edu-stack { margin-top: 2.5rem; display: flex; flex-direction: column; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 6px; overflow: hidden; }
+    .edu-stack { margin-top: 2.5rem; display: flex; flex-direction: column; gap: 14px; }
     .edu-row {
       display: grid;
-      grid-template-columns: 80px 1fr;
+      grid-template-columns: 168px 1fr;
       gap: 1.5rem;
       background: var(--cream);
-      padding: 1.5rem;
-      align-items: start;
-      transition: background 0.15s;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0;
+      align-items: stretch;
+      transition: box-shadow 0.15s, border-color 0.15s;
+      overflow: hidden;
     }
-    .edu-row:hover { background: #fff; }
+    .edu-row:hover { border-color: var(--coral); box-shadow: 0 6px 20px rgba(15,31,61,0.06); }
+    .edu-photo {
+      width: 168px; height: 100%;
+      min-height: 126px;
+      object-fit: cover;
+      display: block;
+    }
+    .edu-content { padding: 1.25rem 1.5rem 1.25rem 0; }
     .edu-year {
       font-family: var(--mono);
       font-size: 11px;
       color: var(--muted2);
-      padding-top: 3px;
-      line-height: 1.6;
+      margin-bottom: 6px;
     }
     .edu-uni {
       font-family: var(--mono);
@@ -141,6 +159,12 @@
       margin-bottom: 3px;
     }
     .edu-note { font-size: 12.5px; color: var(--muted); line-height: 1.5; }
+
+    @media (max-width: 640px) {
+      .edu-row { grid-template-columns: 1fr; }
+      .edu-photo { width: 100%; height: 150px; }
+      .edu-content { padding: 1rem 1.25rem 1.25rem; }
+    }
 
     /* Interests */
     .interests-grid {
@@ -201,11 +225,11 @@
     <div class="sidebar">
       <div class="sidebar-card">
         <div class="sidebar-top">
-          <div class="sidebar-initials" style="overflow:hidden; padding:0;">
-            <img class="avatar-photo" src="assets/chethana.jpg" alt="Chethana Prasad K"/>
+          <img class="sidebar-photo" src="assets/chethana-portrait.jpg" alt="Chethana Prasad K"/>
+          <div class="sidebar-caption">
+            <div class="sidebar-name">Chethana Prasad K</div>
+            <div class="sidebar-role">PRE-DOCTORAL RESEARCHER</div>
           </div>
-          <div class="sidebar-name">Chethana Prasad K</div>
-          <div class="sidebar-role"> RESEARCHER</div>
         </div>
         <div class="sidebar-body">
           <div class="sdb-item">
@@ -267,35 +291,34 @@
 
       <h3>Education</h3>
       <div class="edu-stack">
-        <div class="edu-row" style="grid-template-columns: 52px 80px 1fr;">
-          <div class="inst-badge inst-badge-lg" title="Georgia Institute of Technology — logo placeholder">GT</div>
-          <div class="edu-year">2024 –<br>2026</div>
-          <div>
+        <div class="edu-row">
+          <img class="edu-photo" src="assets/campus-gt.jpg" alt="Georgia Institute of Technology campus"/>
+          <div class="edu-content">
+            <div class="edu-year">2024 – 2026</div>
             <div class="edu-uni">Georgia Institute of Technology · Atlanta, USA</div>
             <div class="edu-deg">M.S. in Computer Science (in progress)</div>
             <div class="edu-note">Specialization: Artificial Intelligence · Minor: Human-Computer Interaction</div>
           </div>
         </div>
-        <div class="edu-row" style="grid-template-columns: 52px 80px 1fr;">
-          <div class="inst-badge inst-badge-lg" title="PES University — logo placeholder">PES</div>
-          <div class="edu-year">2023 –<br>2026</div>
-          <div>
+        <div class="edu-row">
+          <img class="edu-photo" src="assets/campus-pes.jpg" alt="PES University campus"/>
+          <div class="edu-content">
+            <div class="edu-year">2023 – 2026</div>
             <div class="edu-uni">PES University · Bengaluru</div>
             <div class="edu-deg">M.Tech by Research — CS&amp;E</div>
             <div class="edu-note">Thesis: Aggregation Behavior in Heterogeneous Federated GNNs, with an early-stage extension into quantum aggregation</div>
           </div>
         </div>
-        <div class="edu-row" style="grid-template-columns: 52px 80px 1fr;">
-          <div class="inst-badge inst-badge-lg" title="VTU / KSIT — logo placeholder">VTU</div>
-          <div class="edu-year">2017 –<br>2021</div>
-          <div>
+        <div class="edu-row">
+          <img class="edu-photo" src="assets/campus-vtu.jpg" alt="VTU campus gate"/>
+          <div class="edu-content">
+            <div class="edu-year">2017 – 2021</div>
             <div class="edu-uni">VTU / K.S. Institute of Technology · Bengaluru</div>
             <div class="edu-deg">B.E. in Electronics &amp; Communication Engineering</div>
             <div class="edu-note">Visvesvaraya Technological University, Belgaum</div>
           </div>
         </div>
       </div>
-      <p style="font-size:12px; color:var(--muted2); margin-top:0.75rem;">(Institution marks above are placeholders — swap in the real logos whenever you have them.)</p>
 
       <h3>Interests &amp; Identity</h3>
       <div class="interests-grid">

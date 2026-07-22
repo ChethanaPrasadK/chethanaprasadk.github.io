@@ -81,6 +81,20 @@
       padding: 5rem 0;
     }
 
+    .kathak-photo-frame {
+      max-width: 380px;
+      margin: 2.5rem auto 3rem;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 16px 40px rgba(15,31,61,0.14);
+      border: 1px solid var(--border);
+    }
+    .kathak-photo-frame img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
     .k-two-col {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -289,9 +303,8 @@
 <div class="container">
   <div class="kathak-body">
 
-    <div class="img-placeholder" style="height:340px; margin: 2rem 0 2.5rem;">
-      <div class="img-placeholder-icon">📷</div>
-      <div class="img-placeholder-label">Add a Kathak performance photo here</div>
+    <div class="kathak-photo-frame">
+      <img src="assets/chethana-kathak.jpg" alt="Chethana performing Kathak"/>
     </div>
 
     <div class="k-two-col">
